@@ -33,17 +33,19 @@
   <pjax>
   <title>斗地主 - qiye</title>
   <meta name="keywords" content="高中竞赛回忆,null">
-  <meta desc name="description" content="qiye - qiye - qiye">
+  <meta desc name="description" content="
+高中时候残存的一些博客
+ - qiye - qiye">
   
 <meta property="og:type" content="article">
 <meta property="og:title" content="斗地主">
 <meta property="og:url" content="https://wxqiye.github.io/2022/04/27/%E6%96%97%E5%9C%B0%E4%B8%BB/index.html">
 <meta property="og:site_name" content="qiye">
-<meta property="og:description" content="\3. 斗地主（landlords.cpp&#x2F;c&#x2F;pas)【问题描述】牛牛最近迷上了一种叫斗地主的扑克游戏。斗地主是一种使用黑桃、红心、梅花、方片的 A 到 K 加上大小王的共 54 张牌来进行的扑克牌游戏。在斗地主中，牌的大小关系根据牌的数码表示如下：3&lt;4&lt;5&lt;6&lt;7&lt;8&lt;9&lt;10&lt;J&lt;Q&lt;K&lt;A&lt;2&amp;l">
+<meta property="og:description" content="高中时候残存的一些博客">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png">
 <meta property="article:published_time" content="2022-04-27T05:26:45.000Z">
-<meta property="article:modified_time" content="2022-04-28T04:12:30.588Z">
+<meta property="article:modified_time" content="2022-04-28T06:34:37.187Z">
 <meta property="article:author" content="qiye">
 <meta property="article:tag" content="高中竞赛回忆">
 <meta name="twitter:card" content="summary">
@@ -1765,7 +1767,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     debug: false,
     cdn: {"js":{"app":"/js/app.3690b000.js","parallax":"/js/plugins/parallax.8bf0ab10.js","rightMenu":"/js/plugins/rightMenu.1d2dd3e0.js","rightMenus":"/js/plugins/rightMenus.68379f6b.js","sites":"/js/plugins/tags/sites.76bf19b8.js","friends":"/js/plugins/tags/friends.f372da57.js","contributors":"/js/plugins/tags/contributors.aec80453.js","search":"/js/search/hexo.06d40311.js"},"css":{"style":"/css/style.7559fcd3.css"}},
     default: {"avatar":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/placeholder/avatar/round/3442075.svg","link":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/placeholder/link/8f277b4ee0ecd.svg","cover":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/placeholder/cover/76b86c0226ffd.svg","image":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/placeholder/image/2659360.svg"},
-    lastupdate: new Date(1651124743492),
+    lastupdate: new Date(1651127720326),
     sidebar: {
       for_page: ["blogger","category","tagcloud","webinfo"],
       for_post: ["toc"],
@@ -2565,7 +2567,12 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
   <div id="layoutHelper-page-plugins"></div>
   <div id="post-body" itemprop="articleBody">
-    <p>\3. 斗地主<br>（landlords.cpp&#x2F;c&#x2F;pas)<br>【问题描述】<br>牛牛最近迷上了一种叫斗地主的扑克游戏。斗地主是一种使用黑桃、红心、梅花、<br>方片的 A 到 K 加上大小王的共 54 张牌来进行的扑克牌游戏。在斗地主中，牌的大小关<br>系根据牌的数码表示如下：3&lt;4&lt;5&lt;6&lt;7&lt;8&lt;9&lt;10&lt;J&lt;Q&lt;K&lt;A&lt;2&lt;小王&lt;大王，而花色并不<br>对牌的大小产生影响。每一局游戏中，一副手牌由 n 张牌组成。游戏者每次可以根据规<br>定的牌型进行出牌，首先打光自己的手牌一方取得游戏的胜利。<br>现在，牛牛只想知道，对于自己的若干组手牌，分别最少需要多少次出牌可以将它<br>们打光。请你帮他解决这个问题。<br>需要注意的是，本题中游戏者每次可以出手的牌型与一般的斗地主相似而略有不同。<br>具体规则如下：<br>牌型 牌型说明 牌型举例照片<br>火箭 即双王（双鬼牌）。<br>炸弹 四张同点牌。如四个 A。<br>单张牌 单张牌，比如 3。<br>对子牌 两张码数相同的牌。<br>三张牌 三张码数相同的牌。<br>三带一 三张码数相同的牌 + 一张单牌。例如：<br>三张 3+单 4<br>三带二 三张码数相同的牌 + 一对牌。例如：三<br>张 3+对 4<br>单顺子 五张或更多码数连续的单牌（不包括 2<br>点和双王）例如：单 7+单 8+单 9+单 10+<br>单 J。另外，在顺牌（单顺子、双顺子、<br>三顺子）中，牌的花色不要求相同。<br>双顺子 三对或更多码数连续的对牌（不包括 2<br>点和双王）。例如：对 3+对 4+对 5。<br>三顺子 二个或更多码数连续的三张牌（不能包<br>括 2 点和双王）。例如：三张 3+三张 4+<br>三张 5。<br>四带二 四张码数相同的牌+任意两张单牌（或任<br>意两对牌）例如：四张 5+单 3+单 8 或 四<br>张 4+对 5+对 7<br>【输入格式】<br>全国信息学奥林匹克联赛（NOIP2015）复赛 提高组 day1<br>第 5 页共 6 页<br>输入文件名为 landlords.in。<br>第一行包含用空格隔开的 2 个正整数 𝑇, 𝑛 ，表示手牌的组数以及每组手牌的张数。<br>接下来 𝑇 组数据，每组数据 𝑛 行，每行一个非负整数对 𝑎𝑖<br>, 𝑏𝑖，表示一张牌，其中 𝑎𝑖表<br>示牌的数码，𝑏𝑖 表示牌的花色，中间用空格隔开。特别的，我们用 1 来表示数码 A，11 表<br>示数码 J，12 表示数码 Q，13 表示数码 K；黑桃、红心、梅花、方片分别用 1-4 来表示；小<br>王的表示方法为 0 1，大王的表示方法为 0 2。<br>【输出格式】<br>输出文件名为 landlords.out。<br>共 T 行，每行一个整数，表示打光第𝑖组手牌的最少次数。<br>【输入输出样例 1】<br>landlords.in landlords.out<br>1 8<br>7 4<br>8 4<br>9 1<br>10 4<br>11 1<br>5 1<br>1 4<br>1 1<br>3<br>见选手目录下的 landlords&#x2F;landlords1.in 与 landlords&#x2F;landlords1.ans。<br>【输入输出样例 1 说明】<br>共有 1 组手牌，包含 8 张牌：方片 7，方片 8，黑桃 9，方片 10，黑桃 J，黑桃 5，方<br>片 A 以及黑桃 A。可以通过打单顺子（方片 7，方片 8，黑桃 9，方片 10，黑桃 J），单张<br>牌（黑桃 5）以及对子牌（黑桃 A 以及方片 A）在 3 次内打光。<br>【输入输出样例 2】<br>landlords.in landlords.out<br>1 17<br>12 3<br>4 3<br>2 3<br>5 4<br>10 2<br>3 3<br>12 2<br>0 1<br>1 3<br>10 1<br>6 2<br>12 1<br>11 3<br>6<br>全国信息学奥林匹克联赛（NOIP2015）复赛 提高组 day1<br>第 6 页共 6 页<br>5 2<br>12 4<br>2 2<br>7 2<br>见选手目录下的 landlords&#x2F;landlords2.in 与 landlords&#x2F;landlords2.ans。<br>【样例输入输出 3】<br>见选手目录下的 landlords&#x2F;landlords3.in 与 landlords&#x2F;landlords3.ans。<br>【数据规模与约定】<br>对于不同的测试点，我们约定手牌组数 𝑇 与张数 𝑛 的规模如下：<br>测试点编号 𝑇 𝑛 测试点编号 𝑇 𝑛<br>1 100 2 11 100 14<br>2 100 2 12 100 15<br>3 100 3 13 10 16<br>4 100 3 14 10 17<br>5 100 4 15 10 18<br>6 100 4 16 10 19<br>7 100 10 17 10 20<br>8 100 11 18 10 21<br>9 100 12 19 10 22<br>10 100 13 20 10 23<br>数据保证：所有的手牌都是随机生成的。</p>
+    <blockquote>
+<p>高中时候残存的一些博客</p>
+</blockquote>
+<span id="more"></span>
+
+<p>\3. 斗地主<br>（landlords.cpp&#x2F;c&#x2F;pas)<br>【问题描述】<br>牛牛最近迷上了一种叫斗地主的扑克游戏。斗地主是一种使用黑桃、红心、梅花、<br>方片的 A 到 K 加上大小王的共 54 张牌来进行的扑克牌游戏。在斗地主中，牌的大小关<br>系根据牌的数码表示如下：3&lt;4&lt;5&lt;6&lt;7&lt;8&lt;9&lt;10&lt;J&lt;Q&lt;K&lt;A&lt;2&lt;小王&lt;大王，而花色并不<br>对牌的大小产生影响。每一局游戏中，一副手牌由 n 张牌组成。游戏者每次可以根据规<br>定的牌型进行出牌，首先打光自己的手牌一方取得游戏的胜利。<br>现在，牛牛只想知道，对于自己的若干组手牌，分别最少需要多少次出牌可以将它<br>们打光。请你帮他解决这个问题。<br>需要注意的是，本题中游戏者每次可以出手的牌型与一般的斗地主相似而略有不同。<br>具体规则如下：<br>牌型 牌型说明 牌型举例照片<br>火箭 即双王（双鬼牌）。<br>炸弹 四张同点牌。如四个 A。<br>单张牌 单张牌，比如 3。<br>对子牌 两张码数相同的牌。<br>三张牌 三张码数相同的牌。<br>三带一 三张码数相同的牌 + 一张单牌。例如：<br>三张 3+单 4<br>三带二 三张码数相同的牌 + 一对牌。例如：三<br>张 3+对 4<br>单顺子 五张或更多码数连续的单牌（不包括 2<br>点和双王）例如：单 7+单 8+单 9+单 10+<br>单 J。另外，在顺牌（单顺子、双顺子、<br>三顺子）中，牌的花色不要求相同。<br>双顺子 三对或更多码数连续的对牌（不包括 2<br>点和双王）。例如：对 3+对 4+对 5。<br>三顺子 二个或更多码数连续的三张牌（不能包<br>括 2 点和双王）。例如：三张 3+三张 4+<br>三张 5。<br>四带二 四张码数相同的牌+任意两张单牌（或任<br>意两对牌）例如：四张 5+单 3+单 8 或 四<br>张 4+对 5+对 7<br>【输入格式】<br>全国信息学奥林匹克联赛（NOIP2015）复赛 提高组 day1<br>第 5 页共 6 页<br>输入文件名为 landlords.in。<br>第一行包含用空格隔开的 2 个正整数 𝑇, 𝑛 ，表示手牌的组数以及每组手牌的张数。<br>接下来 𝑇 组数据，每组数据 𝑛 行，每行一个非负整数对 𝑎𝑖<br>, 𝑏𝑖，表示一张牌，其中 𝑎𝑖表<br>示牌的数码，𝑏𝑖 表示牌的花色，中间用空格隔开。特别的，我们用 1 来表示数码 A，11 表<br>示数码 J，12 表示数码 Q，13 表示数码 K；黑桃、红心、梅花、方片分别用 1-4 来表示；小<br>王的表示方法为 0 1，大王的表示方法为 0 2。<br>【输出格式】<br>输出文件名为 landlords.out。<br>共 T 行，每行一个整数，表示打光第𝑖组手牌的最少次数。<br>【输入输出样例 1】<br>landlords.in landlords.out<br>1 8<br>7 4<br>8 4<br>9 1<br>10 4<br>11 1<br>5 1<br>1 4<br>1 1<br>3<br>见选手目录下的 landlords&#x2F;landlords1.in 与 landlords&#x2F;landlords1.ans。<br>【输入输出样例 1 说明】<br>共有 1 组手牌，包含 8 张牌：方片 7，方片 8，黑桃 9，方片 10，黑桃 J，黑桃 5，方<br>片 A 以及黑桃 A。可以通过打单顺子（方片 7，方片 8，黑桃 9，方片 10，黑桃 J），单张<br>牌（黑桃 5）以及对子牌（黑桃 A 以及方片 A）在 3 次内打光。<br>【输入输出样例 2】<br>landlords.in landlords.out<br>1 17<br>12 3<br>4 3<br>2 3<br>5 4<br>10 2<br>3 3<br>12 2<br>0 1<br>1 3<br>10 1<br>6 2<br>12 1<br>11 3<br>6<br>全国信息学奥林匹克联赛（NOIP2015）复赛 提高组 day1<br>第 6 页共 6 页<br>5 2<br>12 4<br>2 2<br>7 2<br>见选手目录下的 landlords&#x2F;landlords2.in 与 landlords&#x2F;landlords2.ans。<br>【样例输入输出 3】<br>见选手目录下的 landlords&#x2F;landlords3.in 与 landlords&#x2F;landlords3.ans。<br>【数据规模与约定】<br>对于不同的测试点，我们约定手牌组数 𝑇 与张数 𝑛 的规模如下：<br>测试点编号 𝑇 𝑛 测试点编号 𝑇 𝑛<br>1 100 2 11 100 14<br>2 100 2 12 100 15<br>3 100 3 13 10 16<br>4 100 3 14 10 17<br>5 100 4 15 10 18<br>6 100 4 16 10 19<br>7 100 10 17 10 20<br>8 100 11 18 10 21<br>9 100 12 19 10 22<br>10 100 13 20 10 23<br>数据保证：所有的手牌都是随机生成的。</p>
 <p>题解：<br>狠了狠心还是自己手打了一遍。</p>
 <p>这个题的思路并不复杂。</p>
 <p>我的错主要在于分情况不清晰。</p>
@@ -2607,7 +2614,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateModified" datetime="2022-04-28T12:12:30+08:00">
+          <div class="new-meta-item date" itemprop="dateModified" datetime="2022-04-28T14:34:37+08:00">
   <a class='notlink'>
     <i class="fa-solid fa-edit fa-fw" aria-hidden="true"></i>
     <p>更新于：2022年4月28日</p>
@@ -2633,7 +2640,9 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://wxqiye.github.io/2022/04/27/%E6%96%97%E5%9C%B0%E4%B8%BB/&title=斗地主 - qiye&summary="
+          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://wxqiye.github.io/2022/04/27/%E6%96%97%E5%9C%B0%E4%B8%BB/&title=斗地主 - qiye&summary=
+高中时候残存的一些博客
+"
           
           >
           
@@ -2645,7 +2654,9 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://wxqiye.github.io/2022/04/27/%E6%96%97%E5%9C%B0%E4%B8%BB/&title=斗地主 - qiye&summary="
+          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://wxqiye.github.io/2022/04/27/%E6%96%97%E5%9C%B0%E4%B8%BB/&title=斗地主 - qiye&summary=
+高中时候残存的一些博客
+"
           
           >
           
@@ -2657,7 +2668,9 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="http://service.weibo.com/share/share.php?url=https://wxqiye.github.io/2022/04/27/%E6%96%97%E5%9C%B0%E4%B8%BB/&title=斗地主 - qiye&summary="
+          target="_blank" href="http://service.weibo.com/share/share.php?url=https://wxqiye.github.io/2022/04/27/%E6%96%97%E5%9C%B0%E4%B8%BB/&title=斗地主 - qiye&summary=
+高中时候残存的一些博客
+"
           
           >
           
@@ -2692,14 +2705,23 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class='prev' href='/2022/04/27/day%208-20/'>
           <p class='title'><i class="fa-solid fa-chevron-left" aria-hidden="true"></i>day 8-20</p>
-          <p class='content'>\1. 妹子 1 问题描述 万人迷皮皮轩收到了很多妹子的礼物，由于皮皮轩觉得每个妹子都不错，所以将她们礼物 的包装盒都好好保存，但长此以往皮皮轩的房间里都堆不下了，所以只能考虑将一些包装盒放 进...</p>
+          <p class='content'>
+高中时候残存的一些博客
+
+
+
+\1. 妹子 1 问题描述 万人迷皮皮轩收到了很多妹子的礼物，由于皮皮轩觉得每个妹子都不错，所以将她们礼物 的包装盒都好好保存，但长此以往皮皮轩的房间里都堆不下了...</p>
         </a>
       
       
         <a class='next' href='/2022/04/27/%E4%BF%A1%E6%81%AF%E4%BC%A0%E9%80%92/'>
           <p class='title'>信息传递<i class="fa-solid fa-chevron-right" aria-hidden="true"></i></p>
-          <p class='content'>题目描述有 nn 个同学（编号为 11 到 nn ）正在玩一个信息传递的游戏。在游戏里每人都有一个固定的信息传递对象，其中，编号为 ii 的同学的信息传递对象是编号为 T_iTi 的同学。
-游戏...</p>
+          <p class='content'>
+高中时候残存的一些博客
+
+
+
+题目描述有 nn 个同学（编号为 11 到 nn ）正在玩一个信息传递的游戏。在游戏里每人都有一个固定的信息传递对象，其中，编号为 ii 的同学的信息传递对象是编...</p>
         </a>
       
     </div>
@@ -4129,7 +4151,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"qiye","url":"https://wxqiye.github.io/","logo":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"qiye","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://wxqiye.github.io/","sameAs":["https://github.com/volantis-x"],"description":""},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://wxqiye.github.io/","name":"qiye"}},{"@type":"ListItem","position":2,"item":{"@id":"https://wxqiye.github.io/categories/高中竞赛回忆/","name":"高中竞赛回忆"}},{"@type":"ListItem","position":3,"item":{"@id":"https://wxqiye.github.io/2022/04/27/斗地主/","name":"斗地主"}}]},{"@context":"http://schema.org","@type":"BlogPosting","headline":"斗地主","description":"","datePublished":"2022-04-27T05:26:45.000Z","dateModified":"2022-04-28T04:12:30.588Z","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https://wxqiye.github.io/2022/04/27/%E6%96%97%E5%9C%B0%E4%B8%BB/"},"author":{"@type":"Person","name":"qiye","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://wxqiye.github.io/"},"publisher":{"@type":"Organization","name":"qiye","logo":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://wxqiye.github.io/2022/04/27/%E6%96%97%E5%9C%B0%E4%B8%BB/","wordCount":0,"articleSection":"高中竞赛回忆","keywords":"高中竞赛回忆","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
+  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"qiye","url":"https://wxqiye.github.io/","logo":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"qiye","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://wxqiye.github.io/","sameAs":["https://github.com/volantis-x"],"description":""},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://wxqiye.github.io/","name":"qiye"}},{"@type":"ListItem","position":2,"item":{"@id":"https://wxqiye.github.io/categories/高中竞赛回忆/","name":"高中竞赛回忆"}},{"@type":"ListItem","position":3,"item":{"@id":"https://wxqiye.github.io/2022/04/27/斗地主/","name":"斗地主"}}]},{"@context":"http://schema.org","@type":"BlogPosting","headline":"斗地主","description":"\n高中时候残存的一些博客\n","datePublished":"2022-04-27T05:26:45.000Z","dateModified":"2022-04-28T06:34:37.187Z","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https://wxqiye.github.io/2022/04/27/%E6%96%97%E5%9C%B0%E4%B8%BB/"},"author":{"@type":"Person","name":"qiye","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://wxqiye.github.io/"},"publisher":{"@type":"Organization","name":"qiye","logo":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://wxqiye.github.io/2022/04/27/%E6%96%97%E5%9C%B0%E4%B8%BB/","wordCount":13,"articleSection":"高中竞赛回忆","keywords":"高中竞赛回忆","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
 
 
   <!-- 
