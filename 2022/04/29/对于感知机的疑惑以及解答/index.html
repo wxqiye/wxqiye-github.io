@@ -4,8 +4,8 @@
   <meta name="generator" content="Hexo 6.1.0">
   <meta charset="utf-8">
   <!-- SEO相关 -->
-  <meta name="robots" content="noindex,follow">
-  <link rel="canonical" href="https://wxqiye.github.io/categories/深度学习/"/>
+  
+  <link rel="canonical" href="https://wxqiye.github.io/2022/04/29/对于感知机的疑惑以及解答/"/>
   <!-- 渲染优化 -->
     <meta http-equiv='x-dns-prefetch-control' content='on' />
       <link rel='dns-prefetch' href='https://npm.elemecdn.com'>
@@ -31,16 +31,25 @@
   <!-- feed -->
   <!-- 页面元数据 -->
   <pjax>
-  <title>分类：深度学习 - qiye</title>
-  <meta name="keywords" content="null">
-  <meta desc name="description" content="qiye - qiye - qiye">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="qiye">
-<meta property="og:url" content="https://wxqiye.github.io/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/index.html">
+  <title>对于感知机的疑惑以及解答 - qiye</title>
+  <meta name="keywords" content="深度学习,null">
+  <meta desc name="description" content="
+学习不免产生很多疑问，如下：（只是我自己的思考，不能保证正确。）
+
+感知机为什么是线性，多层感知机为什么是非线性。不是都有非线性激活函数吗。感知机到多层感知机，到底是因为引入了非线性激活函数，还是增加了层数。
+早期感知机为什么只是加了一层，没有用其他非线性激活函数，就能处理异或问题。线性叠加多少层不还是线性吗。... - qiye - qiye">
+  
+<meta property="og:type" content="article">
+<meta property="og:title" content="对于感知机的疑惑以及解答">
+<meta property="og:url" content="https://wxqiye.github.io/2022/04/29/%E5%AF%B9%E4%BA%8E%E6%84%9F%E7%9F%A5%E6%9C%BA%E7%9A%84%E7%96%91%E6%83%91%E4%BB%A5%E5%8F%8A%E8%A7%A3%E7%AD%94/index.html">
 <meta property="og:site_name" content="qiye">
+<meta property="og:description" content="学习不免产生很多疑问，如下：（只是我自己的思考，不能保证正确。）  感知机为什么是线性，多层感知机为什么是非线性。不是都有非线性激活函数吗。感知机到多层感知机，到底是因为引入了非线性激活函数，还是增加了层数。 早期感知机为什么只是加了一层，没有用其他非线性激活函数，就能处理异或问题。线性叠加多少层不还是线性吗。 到底是如何增加非线性的。">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png">
+<meta property="article:published_time" content="2022-04-29T08:07:47.000Z">
+<meta property="article:modified_time" content="2022-04-29T08:59:28.988Z">
 <meta property="article:author" content="qiye">
+<meta property="article:tag" content="深度学习">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png">
   </pjax>
@@ -2398,7 +2407,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
     
       <!-- see: /layout/_partial/scripts/_ctrl/coverCtrl.ejs -->
-      <div id="none" class='cover-wrapper  search' style="display: none;">
+      <div id="none" class='cover-wrapper post search' style="display: none;">
         
   <div id="parallax-window"></div>
 
@@ -2482,32 +2491,8 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       <div id="safearea">
         <div class="body-wrapper">
           
-
 <div id="l_main" class=''>
-  
-    
-      
-  <section class="post-list">
-    
-      
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-      
-    
-    
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow floatable blur"  itemscope itemtype="http://schema.org/Article" >
+  <article itemscope itemtype="http://schema.org/Article" class="article post white-box reveal md shadow floatable blur article-type-post" id="post" itemscope itemprop="blogPost">
   <link itemprop="mainEntityOfPage" href="https://wxqiye.github.io/2022/04/29/%E5%AF%B9%E4%BA%8E%E6%84%9F%E7%9F%A5%E6%9C%BA%E7%9A%84%E7%96%91%E6%83%91%E4%BB%A5%E5%8F%8A%E8%A7%A3%E7%AD%94/">
   <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
     <meta itemprop="name" content="qiye">
@@ -2517,23 +2502,74 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <meta itemprop="description" content="">
   </span>
   
-  
+
+
   
     <span hidden>
       <meta itemprop="image" content="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png">
     </span>
   
-  
+  <div class="article-meta" id="top">
     
-    <h2 class="article-title"  itemprop="name headline">
-      <a href="/2022/04/29/%E5%AF%B9%E4%BA%8E%E6%84%9F%E7%9F%A5%E6%9C%BA%E7%9A%84%E7%96%91%E6%83%91%E4%BB%A5%E5%8F%8A%E8%A7%A3%E7%AD%94/"  itemprop="url">
+    
+    
+      <h1 class="title" itemprop="name headline">
         对于感知机的疑惑以及解答
-      </a>
-    </h2>
-  
-  <div class='md article-desc' itemprop="articleBody">
+      </h1>
+      <div class='new-meta-box'>
+        
+          
+            
+<div class='new-meta-item author' itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <a itemprop="url" class='author' href="/" rel="nofollow">
+    <img itemprop="image" src="https://imagemarkdownimage.oss-cn-beijing.aliyuncs.com/img/20140806195851_eNmFt.thumb.700_0.png" class="lazyload" data-srcset="https://imagemarkdownimage.oss-cn-beijing.aliyuncs.com/img/20140806195851_eNmFt.thumb.700_0.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+    <p itemprop="name">qiye</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+  <div class='new-meta-item category'>
+    <i class="fa-solid fa-folder-open fa-fw" aria-hidden="true"></i>
+    <a class="category-link" href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">深度学习</a>
     
-      <blockquote>
+      <span hidden itemprop="about" itemscope itemtype="http://schema.org/Thing">
+        <a href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" itemprop="url"><span itemprop="name">深度学习</span></a>
+      </span>
+    
+  </div>
+
+
+          
+        
+          
+            <div class="new-meta-item date" itemprop="dateCreated datePublished" datetime="2022-04-29T16:07:47+08:00">
+  <a class='notlink'>
+    <i class="fa-solid fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：2022年4月29日</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+
+          
+        
+        <!-- Custom Files topMeta begin-->
+        
+        <!-- Custom Files topMeta end-->
+      </div>
+    
+  </div>
+
+
+  <div id="layoutHelper-page-plugins"></div>
+  <div id="post-body" itemprop="articleBody">
+    <blockquote>
 <p>学习不免产生很多疑问，如下：（只是我自己的思考，不能保证正确。）</p>
 <ol>
 <li>感知机为什么是线性，多层感知机为什么是非线性。不是都有非线性激活函数吗。感知机到多层感知机，到底是因为引入了非线性激活函数，还是增加了层数。</li>
@@ -2541,342 +2577,213 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <li>到底是如何增加非线性的。</li>
 </ol>
 </blockquote>
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-          
-          <a class='avatar' href='/'><img src='https://imagemarkdownimage.oss-cn-beijing.aliyuncs.com/img/20140806195851_eNmFt.thumb.700_0.png'></a>
-          <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-            <meta itemprop="image" content="https://imagemarkdownimage.oss-cn-beijing.aliyuncs.com/img/20140806195851_eNmFt.thumb.700_0.png">
-            <meta itemprop="name" content="qiye">
-            <meta itemprop="url" content="/">
-          </span>
-        
-        <time itemprop="dateCreated datePublished" datetime="2022-04-29T16:07:47+08:00">2022-04-29</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">深度学习</a>
-          
-            <span hidden itemprop="about" itemscope itemtype="http://schema.org/Thing">
-              <a href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" itemprop="url"><span itemprop="name">深度学习</span></a>
-            </span>
-          
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/2022/04/29/%E5%AF%B9%E4%BA%8E%E6%84%9F%E7%9F%A5%E6%9C%BA%E7%9A%84%E7%96%91%E6%83%91%E4%BB%A5%E5%8F%8A%E8%A7%A3%E7%AD%94/' itemprop="url">
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-  
+<span id="more"></span>
 
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow floatable blur"  itemscope itemtype="http://schema.org/Article" >
-  <link itemprop="mainEntityOfPage" href="https://wxqiye.github.io/2022/04/29/softmax%E5%9B%9E%E5%BD%92/">
-  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="qiye">
-  </span>
-  <span hidden itemprop="post" itemscope itemtype="http://schema.org/Post">
-    <meta itemprop="name" content="qiye">
-    <meta itemprop="description" content="">
-  </span>
-  
-  
-  
-    <span hidden>
-      <meta itemprop="image" content="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png">
-    </span>
-  
-  
-    
-    <h2 class="article-title"  itemprop="name headline">
-      <a href="/2022/04/29/softmax%E5%9B%9E%E5%BD%92/"  itemprop="url">
-        softmax回归
-      </a>
-    </h2>
-  
-  <div class='md article-desc' itemprop="articleBody">
-    
-      <blockquote>
-<p>本节深入理解softmax回归。</p>
-<p>注意：以下仅为我个人理解。</p>
+<p>最本质的原因在于我对于线性跟非线性概念的理解不当。线性，非线性，本以为很简单的两个概念，成了拦路虎。</p>
+<div class="story post-story"><h2 id="线性与非线性"><a href="#线性与非线性" class="headerlink" title="线性与非线性"></a>线性与非线性</h2><p><img src="https://imagemarkdownimage.oss-cn-beijing.aliyuncs.com/img/image-20220429161634033.png" class="lazyload" data-srcset="https://imagemarkdownimage.oss-cn-beijing.aliyuncs.com/img/image-20220429161634033.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="image-20220429161634033"></p>
+</div><div class="story post-story"><h2 id="辨析感知机与多层感知机的线性与非线性"><a href="#辨析感知机与多层感知机的线性与非线性" class="headerlink" title="辨析感知机与多层感知机的线性与非线性"></a>辨析感知机与多层感知机的线性与非线性</h2><p>理清了线性跟非线性的概念，我们回看。</p>
+<p>我们得到了标准，对于判断线性非线性的标准是看w。</p>
+<h3 id="感知机的辨析"><a href="#感知机的辨析" class="headerlink" title="感知机的辨析"></a>感知机的辨析</h3><p>在早期的感知机，纵使他后面有一个非线性激活函数，但是并没有影响，他的每一个wi只影响对应的xi，所以他依然是线性的。</p>
+<p><img src="https://imagemarkdownimage.oss-cn-beijing.aliyuncs.com/img/image-20220429161810441.png" class="lazyload" data-srcset="https://imagemarkdownimage.oss-cn-beijing.aliyuncs.com/img/image-20220429161810441.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="image-20220429161810441"></p>
+<h3 id="多层感知机的辨析"><a href="#多层感知机的辨析" class="headerlink" title="多层感知机的辨析"></a>多层感知机的辨析</h3><p>但是，假如我们，再加一层，如图：</p>
+<p><img src="https://imagemarkdownimage.oss-cn-beijing.aliyuncs.com/img/%E6%84%9F%E7%9F%A5%E6%9C%BA%E7%9A%84%E8%BE%A8%E6%9E%90.png" class="lazyload" data-srcset="https://imagemarkdownimage.oss-cn-beijing.aliyuncs.com/img/%E6%84%9F%E7%9F%A5%E6%9C%BA%E7%9A%84%E8%BE%A8%E6%9E%90.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="感知机的辨析"></p>
+<p>每一个x就被多个w影响了，并且<strong>因为有激活函数存在，无法把w*wi塌陷为一个参数w</strong>，x无法被单独拆分出去，即<strong>每个变量是无法与其它变量所独立开来</strong>，所以是非线性的！</p>
+<p>所以！</p>
+</div><div class="story post-story"><h2 id="解答问题一："><a href="#解答问题一：" class="headerlink" title="解答问题一："></a>解答问题一：</h2><p>感知机跟多层感知机，<strong>从线性到非线性</strong>，</p>
+<blockquote>
+<p><strong>最本质的区别，就是在于他多加了层数，使得线性变成了非线性！</strong></p>
 </blockquote>
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-          
-          <a class='avatar' href='/'><img src='https://imagemarkdownimage.oss-cn-beijing.aliyuncs.com/img/20140806195851_eNmFt.thumb.700_0.png'></a>
-          <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-            <meta itemprop="image" content="https://imagemarkdownimage.oss-cn-beijing.aliyuncs.com/img/20140806195851_eNmFt.thumb.700_0.png">
-            <meta itemprop="name" content="qiye">
-            <meta itemprop="url" content="/">
-          </span>
-        
-        <time itemprop="dateCreated datePublished" datetime="2022-04-29T13:29:42+08:00">2022-04-29</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">深度学习</a>
-          
-            <span hidden itemprop="about" itemscope itemtype="http://schema.org/Thing">
-              <a href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" itemprop="url"><span itemprop="name">深度学习</span></a>
-            </span>
-          
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/2022/04/29/softmax%E5%9B%9E%E5%BD%92/' itemprop="url">
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow floatable blur"  itemscope itemtype="http://schema.org/Article" >
-  <link itemprop="mainEntityOfPage" href="https://wxqiye.github.io/2022/04/29/%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/">
-  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="qiye">
-  </span>
-  <span hidden itemprop="post" itemscope itemtype="http://schema.org/Post">
-    <meta itemprop="name" content="qiye">
-    <meta itemprop="description" content="">
-  </span>
-  
-  
-  
-    <span hidden>
-      <meta itemprop="image" content="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png">
-    </span>
-  
-  
-    
-    <h2 class="article-title"  itemprop="name headline">
-      <a href="/2022/04/29/%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/"  itemprop="url">
-        卷积神经网络
-      </a>
-    </h2>
-  
-  <div class='md article-desc' itemprop="articleBody">
-    
-      <blockquote>
-<p>本文在于复习巩固卷积神经网络的基本概念。</p>
+<blockquote>
+<blockquote>
+<p><strong>并没有刻意引入非线性激活函数，非线性激活函数，在最早期的感知机本来就有</strong>。</p>
 </blockquote>
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-          
-          <a class='avatar' href='/'><img src='https://imagemarkdownimage.oss-cn-beijing.aliyuncs.com/img/20140806195851_eNmFt.thumb.700_0.png'></a>
-          <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-            <meta itemprop="image" content="https://imagemarkdownimage.oss-cn-beijing.aliyuncs.com/img/20140806195851_eNmFt.thumb.700_0.png">
-            <meta itemprop="name" content="qiye">
-            <meta itemprop="url" content="/">
-          </span>
-        
-        <time itemprop="dateCreated datePublished" datetime="2022-04-29T12:55:20+08:00">2022-04-29</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">深度学习</a>
-          
-            <span hidden itemprop="about" itemscope itemtype="http://schema.org/Thing">
-              <a href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" itemprop="url"><span itemprop="name">深度学习</span></a>
-            </span>
-          
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/2022/04/29/%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/' itemprop="url">
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow floatable blur"  itemscope itemtype="http://schema.org/Article" >
-  <link itemprop="mainEntityOfPage" href="https://wxqiye.github.io/2022/04/23/resnet/">
-  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="qiye">
-  </span>
-  <span hidden itemprop="post" itemscope itemtype="http://schema.org/Post">
-    <meta itemprop="name" content="qiye">
-    <meta itemprop="description" content="">
-  </span>
-  
-  
-  
-    <span hidden>
-      <meta itemprop="image" content="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png">
-    </span>
-  
-  
-    
-    <h2 class="article-title"  itemprop="name headline">
-      <a href="/2022/04/23/resnet/"  itemprop="url">
-        resnet
-      </a>
-    </h2>
-  
-  <div class='md article-desc' itemprop="articleBody">
-    
-      
-        希望在下下周可以填坑到这里！
-
-
-      
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-          
-          <a class='avatar' href='/'><img src='https://imagemarkdownimage.oss-cn-beijing.aliyuncs.com/img/20140806195851_eNmFt.thumb.700_0.png'></a>
-          <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-            <meta itemprop="image" content="https://imagemarkdownimage.oss-cn-beijing.aliyuncs.com/img/20140806195851_eNmFt.thumb.700_0.png">
-            <meta itemprop="name" content="qiye">
-            <meta itemprop="url" content="/">
-          </span>
-        
-        <time itemprop="dateCreated datePublished" datetime="2022-04-23T20:19:08+08:00">2022-04-23</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">深度学习</a>
-          
-            <span hidden itemprop="about" itemscope itemtype="http://schema.org/Thing">
-              <a href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" itemprop="url"><span itemprop="name">深度学习</span></a>
-            </span>
-          
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/2022/04/23/resnet/' itemprop="url">
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow floatable blur"  itemscope itemtype="http://schema.org/Article" >
-  <link itemprop="mainEntityOfPage" href="https://wxqiye.github.io/2022/04/23/%E6%84%9F%E7%9F%A5%E6%9C%BA/">
-  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="qiye">
-  </span>
-  <span hidden itemprop="post" itemscope itemtype="http://schema.org/Post">
-    <meta itemprop="name" content="qiye">
-    <meta itemprop="description" content="">
-  </span>
-  
-  
-  
-    <span hidden>
-      <meta itemprop="image" content="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png">
-    </span>
-  
-  
-    
-    <h2 class="article-title"  itemprop="name headline">
-      <a href="/2022/04/23/%E6%84%9F%E7%9F%A5%E6%9C%BA/"  itemprop="url">
-        感知机
-      </a>
-    </h2>
-  
-  <div class='md article-desc' itemprop="articleBody">
-    
-      <blockquote>
-<p>本文深入探讨什么是感知机，早期感知机的缺陷，以及缺陷的解决。以便于自己今后的复习。</p>
 </blockquote>
-    
+</div><div class="story post-story"><h2 id="解答问题二："><a href="#解答问题二：" class="headerlink" title="解答问题二："></a>解答问题二：</h2><p>因为早期的感知机，本来就有非线性激活函数，所以，在后面加了一层就能处理异或问题，并不会造成塌陷。</p>
+</div><div class="story post-story"><h2 id="解答问题三："><a href="#解答问题三：" class="headerlink" title="解答问题三："></a>解答问题三：</h2><p>非线性，需要<strong>激活函数</strong>，并且要<strong>多层</strong>，二者缺一不可。</p>
+<p><strong>激活函数</strong>保证不会塌陷成线性，<strong>多层</strong>保证一个x被多个w影响，共同作用保证了<strong>每个变量无法与其他变量独立开来</strong>。</p>
+<p><strong>如何没有激活函数会成为：</strong></p>
+<p><img src="https://imagemarkdownimage.oss-cn-beijing.aliyuncs.com/img/image-20220429164837590.png" class="lazyload" data-srcset="https://imagemarkdownimage.oss-cn-beijing.aliyuncs.com/img/image-20220429164837590.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="image-20220429164837590"></p>
+<p>(w1,w2这里是矩阵，为了便于理解,我就看成单一的w1,w2两个变量)</p>
+<p>即会造成<strong>塌陷</strong>，w2*w1，完全可以重新组成一个w，他还是线性的。</p>
+<p><strong>如果是单层加激活函数就会成为：</strong></p>
+<p><img src="https://imagemarkdownimage.oss-cn-beijing.aliyuncs.com/img/image-20220429161810441.png" class="lazyload" data-srcset="https://imagemarkdownimage.oss-cn-beijing.aliyuncs.com/img/image-20220429161810441.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="image-20220429161810441"></p>
+<p>每一个x依然只被一个w影响，所以是线性。</p>
+</div><div class="story post-story"><h2 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h2><p><img src="https://imagemarkdownimage.oss-cn-beijing.aliyuncs.com/img/image-20220429165654512.png" class="lazyload" data-srcset="https://imagemarkdownimage.oss-cn-beijing.aliyuncs.com/img/image-20220429165654512.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="image-20220429165654512"></p>
+<p>在感知机到多层感知机的变迁中，最本质在于<strong>增加了多层</strong>，将<strong>f(n)<strong>替换为</strong>sigmoid</strong>或者<strong>relu</strong>，<strong>仅仅是因为后者的拟合效果更好而已</strong>。理论上来说，他们都能无限逼近拟合任何非线性函数，只要层数足够多。</p>
+
+</div>
   </div>
   
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-          
-          <a class='avatar' href='/'><img src='https://imagemarkdownimage.oss-cn-beijing.aliyuncs.com/img/20140806195851_eNmFt.thumb.700_0.png'></a>
-          <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-            <meta itemprop="image" content="https://imagemarkdownimage.oss-cn-beijing.aliyuncs.com/img/20140806195851_eNmFt.thumb.700_0.png">
-            <meta itemprop="name" content="qiye">
-            <meta itemprop="url" content="/">
-          </span>
-        
-        <time itemprop="dateCreated datePublished" datetime="2022-04-23T20:19:08+08:00">2022-04-23</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">深度学习</a>
-          
-            <span hidden itemprop="about" itemscope itemtype="http://schema.org/Thing">
-              <a href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" itemprop="url"><span itemprop="name">深度学习</span></a>
-            </span>
-          
-        
-      </div>
+  
+    
+    <div class='footer'>
       
-        <div>
-          <a class='readmore' href='/2022/04/23/%E6%84%9F%E7%9F%A5%E6%9C%BA/' itemprop="url">
-            阅读全文
-          </a>
+      
+      
+        <div class='copyright'>
+          <blockquote>
+            
+              
+                <p>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</p>
+
+              
+            
+              
+                <p>本文永久链接是：<a href=https://wxqiye.github.io/2022/04/29/%E5%AF%B9%E4%BA%8E%E6%84%9F%E7%9F%A5%E6%9C%BA%E7%9A%84%E7%96%91%E6%83%91%E4%BB%A5%E5%8F%8A%E8%A7%A3%E7%AD%94/>https://wxqiye.github.io/2022/04/29/%E5%AF%B9%E4%BA%8E%E6%84%9F%E7%9F%A5%E6%9C%BA%E7%9A%84%E7%96%91%E6%83%91%E4%BB%A5%E5%8F%8A%E8%A7%A3%E7%AD%94/</a></p>
+              
+            
+          </blockquote>
         </div>
+      
       
     </div>
   
+  
+    
 
+
+  <div class='article-meta' id="bottom">
+    <div class='new-meta-box'>
+      
+        
+          <div class="new-meta-item date" itemprop="dateModified" datetime="2022-04-29T16:59:28+08:00">
+  <a class='notlink'>
+    <i class="fa-solid fa-edit fa-fw" aria-hidden="true"></i>
+    <p>更新于：2022年4月29日</p>
+  </a>
 </div>
 
-          </div>
         
       
-    
-  </section>
+        
+          
   
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" rel="nofollow"><i class="fa-solid fa-hashtag fa-fw" aria-hidden="true"></i><p>深度学习</p></a></div>
+  <span hidden itemprop="keywords">深度学习</span>
+
+
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
     
+      
+        <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://wxqiye.github.io/2022/04/29/%E5%AF%B9%E4%BA%8E%E6%84%9F%E7%9F%A5%E6%9C%BA%E7%9A%84%E7%96%91%E6%83%91%E4%BB%A5%E5%8F%8A%E8%A7%A3%E7%AD%94/&title=对于感知机的疑惑以及解答 - qiye&summary=
+学习不免产生很多疑问，如下：（只是我自己的思考，不能保证正确。）
+
+感知机为什么是线性，多层感知机为什么是非线性。不是都有非线性激活函数吗。感知机到多层感知机，到底是因为引入了非线性激活函数，还是增加了层数。
+早期感知机为什么只是加了一层，没有用其他非线性激活函数，就能处理异或问题。线性叠加多少层不还是线性吗。
+到底是如何增加非线性的。
+
+"
+          
+          >
+          
+            <img src="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/logo/128/qq.png" class="lazyload" data-srcset="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/logo/128/qq.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://wxqiye.github.io/2022/04/29/%E5%AF%B9%E4%BA%8E%E6%84%9F%E7%9F%A5%E6%9C%BA%E7%9A%84%E7%96%91%E6%83%91%E4%BB%A5%E5%8F%8A%E8%A7%A3%E7%AD%94/&title=对于感知机的疑惑以及解答 - qiye&summary=
+学习不免产生很多疑问，如下：（只是我自己的思考，不能保证正确。）
+
+感知机为什么是线性，多层感知机为什么是非线性。不是都有非线性激活函数吗。感知机到多层感知机，到底是因为引入了非线性激活函数，还是增加了层数。
+早期感知机为什么只是加了一层，没有用其他非线性激活函数，就能处理异或问题。线性叠加多少层不还是线性吗。
+到底是如何增加非线性的。
+
+"
+          
+          >
+          
+            <img src="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/logo/128/qzone.png" class="lazyload" data-srcset="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/logo/128/qzone.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="http://service.weibo.com/share/share.php?url=https://wxqiye.github.io/2022/04/29/%E5%AF%B9%E4%BA%8E%E6%84%9F%E7%9F%A5%E6%9C%BA%E7%9A%84%E7%96%91%E6%83%91%E4%BB%A5%E5%8F%8A%E8%A7%A3%E7%AD%94/&title=对于感知机的疑惑以及解答 - qiye&summary=
+学习不免产生很多疑问，如下：（只是我自己的思考，不能保证正确。）
+
+感知机为什么是线性，多层感知机为什么是非线性。不是都有非线性激活函数吗。感知机到多层感知机，到底是因为引入了非线性激活函数，还是增加了层数。
+早期感知机为什么只是加了一层，没有用其他非线性激活函数，就能处理异或问题。线性叠加多少层不还是线性吗。
+到底是如何增加非线性的。
+
+"
+          
+          >
+          
+            <img src="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/logo/128/weibo.png" class="lazyload" data-srcset="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/logo/128/weibo.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+          
+        </a>
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+
+
+        
+      
+    </div>
+    <!-- Custom Files bottomMeta begin -->
+    
+    <!-- Custom Files bottomMeta end -->
+  </div>
+
+
+  
+  
+
+  
+    <div class="prev-next">
+      
+      
+        <a class='next' href='/2022/04/29/%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0/'>
+          <p class='title'>激活函数<i class="fa-solid fa-chevron-right" aria-hidden="true"></i></p>
+          <p class='content'>
+</p>
+        </a>
+      
+    </div>
+  
+  <!-- Custom Files postEnd begin-->
+  
+  <!-- Custom Files postEnd end-->
+</article>
+
+
+  
+
+  
+  <article class="post white-box reveal shadow floatable blur" id="comments">
+    <span hidden>
+      <meta itemprop="discussionUrl" content="/2022/04/29/%E5%AF%B9%E4%BA%8E%E6%84%9F%E7%9F%A5%E6%9C%BA%E7%9A%84%E7%96%91%E6%83%91%E4%BB%A5%E5%8F%8A%E8%A7%A3%E7%AD%94/index.html#comments">
+    </span>
+    <p ct><i class='fa-solid fa-comments'></i> 评论</p>
+    
+    
+    <div id="layoutHelper-comments"></div>
+
+  </article>
   
 
 
-    
-  
+
+
+
 </div>
 <aside id='l_side' itemscope itemtype="http://schema.org/WPSideBar">
   
@@ -2884,177 +2791,38 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     
     
 
-<section class="widget blogger shadow floatable blur desktop mobile pjax">
-  <div class='content'>
-    
-      
-        <a class='avatar flat-box rectangle' href='/about/'>
-          <img no-lazy src='https://imagemarkdownimage.oss-cn-beijing.aliyuncs.com/img/20140806195851_eNmFt.thumb.700_0-removebg-preview.png'/>
-        </a>
-      
-    
-    
-      <div class='text'>
-        
-        
-        
-          <p><span id="jinrishici-sentence">qiye</span></p>
-          <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
-        
-      </div>
-    
-    
-      <div class="social-wrapper">
-        
-          
-            <a href="/"
-              class="social fa-solid fa-rss flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-          
-            <a href="mailto:wxqiye_wei@163.com"
-              class="social fa-solid fa-envelope flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-          
-            <a href="https://github.com/wxqiye"
-              class="social fab fa-github flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-          
-            <a href="https://music.163.com/#/my/m/music/playlist?id=1999457737"
-              class="social fa-solid fa-headphones-alt flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-      </div>
-    
-  </div>
-</section>
 
-  
 
-  
-    
-    
-  
-
-  <section class="widget category shadow floatable blur desktop pjax">
+  <section class="widget toc-wrapper shadow floatable blur desktop mobile pjax" id="toc-div" >
     
   <header>
     
-      <a href='/categories/'><i class="fa-solid fa-folder-open fa-fw" aria-hidden="true"></i><span class='name'>文章分类</span></a>
+      <i class="fa-solid fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
     
   </header>
 
 
     <div class='content'>
-      <ul class="entry navigation">
-        
-          <li><a class="flat-box"
-            title="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"
-            active-action="action-categoriesE6B7B1E5BAA6E5ADA6E4B9A0"
-            ><div class='name'>深度学习</div><div class='badge'>(5)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/%E9%AB%98%E4%B8%AD%E7%AB%9E%E8%B5%9B%E5%9B%9E%E5%BF%86/" href="/categories/%E9%AB%98%E4%B8%AD%E7%AB%9E%E8%B5%9B%E5%9B%9E%E5%BF%86/"
-            active-action="action-categoriesE9AB98E4B8ADE7AB9EE8B59BE59B9EE5BF86"
-            ><div class='name'>高中竞赛回忆</div><div class='badge'>(5)</div></a></li>
-        
-      </ul>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BA%BF%E6%80%A7%E4%B8%8E%E9%9D%9E%E7%BA%BF%E6%80%A7"><span class="toc-number">1.</span> <span class="toc-text">线性与非线性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BE%A8%E6%9E%90%E6%84%9F%E7%9F%A5%E6%9C%BA%E4%B8%8E%E5%A4%9A%E5%B1%82%E6%84%9F%E7%9F%A5%E6%9C%BA%E7%9A%84%E7%BA%BF%E6%80%A7%E4%B8%8E%E9%9D%9E%E7%BA%BF%E6%80%A7"><span class="toc-number">2.</span> <span class="toc-text">辨析感知机与多层感知机的线性与非线性</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%84%9F%E7%9F%A5%E6%9C%BA%E7%9A%84%E8%BE%A8%E6%9E%90"><span class="toc-number">2.1.</span> <span class="toc-text">感知机的辨析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%9A%E5%B1%82%E6%84%9F%E7%9F%A5%E6%9C%BA%E7%9A%84%E8%BE%A8%E6%9E%90"><span class="toc-number">2.2.</span> <span class="toc-text">多层感知机的辨析</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A7%A3%E7%AD%94%E9%97%AE%E9%A2%98%E4%B8%80%EF%BC%9A"><span class="toc-number">3.</span> <span class="toc-text">解答问题一：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A7%A3%E7%AD%94%E9%97%AE%E9%A2%98%E4%BA%8C%EF%BC%9A"><span class="toc-number">4.</span> <span class="toc-text">解答问题二：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A7%A3%E7%AD%94%E9%97%AE%E9%A2%98%E4%B8%89%EF%BC%9A"><span class="toc-number">5.</span> <span class="toc-text">解答问题三：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%BB%E7%BB%93%EF%BC%9A"><span class="toc-number">6.</span> <span class="toc-text">总结：</span></a></li></ol>
     </div>
   </section>
-
-
-  
-
-  
-    
-    
-  
-
-  <section class="widget tagcloud shadow floatable blur desktop mobile pjax">
-    
-  <header>
-    
-      <a href='/tags/'><i class="fa-solid fa-tags fa-fw" aria-hidden="true"></i><span class='name'>热门标签</span></a>
-    
-  </header>
-
-
-    <div class='content'>
-      <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" style="font-size: 14px; color: #999">深度学习</a> <a href="/tags/%E9%AB%98%E4%B8%AD%E7%AB%9E%E8%B5%9B%E5%9B%9E%E5%BF%86/" style="font-size: 14px; color: #999">高中竞赛回忆</a>
-    </div>
-  </section>
-
-
-  
-
-  
-    
-    
-
-<section class="widget shadow floatable blur desktop pjax">
-  
-  <header>
-    
-      <i class="fa-solid fa-award fa-fw" aria-hidden="true"></i><span class='name'>站点信息</span>
-    
-  </header>
-
-
-  <div class='content'>
-    <div class="webinfo">
-      
-        <div class="webinfo-item">
-          <div>文章数目：</div>
-          <div>11 篇</div>
-        </div>
-      
-
-      
-        <div class="webinfo-item">
-          <div>已运行时间：</div>
-          <div id="webinfo-runtime-count"></div>
-        </div>
-      
-
-
-      
-        <div class="webinfo-item">
-          <div>本站总字数：</div>
-          <div>6.9k 字</div>
-        </div>
-      
-
-      
-
-      
-
-      
-    </div>
-  </div>
-</section>
 
   
 
 
 <!-- 没有 pjax 占位会报错 万恶的 pjax -->
+
+  <div class="pjax">
+    <!-- pjax占位 -->
+  </div>
+
+  <div class="pjax">
+    <!-- pjax占位 -->
+  </div>
+
+  <div class="pjax">
+    <!-- pjax占位 -->
+  </div>
 
   <div class="pjax">
     <!-- pjax占位 -->
@@ -3078,13 +2846,14 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   <!-- Custom Files side end -->
 </aside>
 
+
  <!--此文件用来存放一些不方便取值的变量-->
 <!--思路大概是将值藏到重加载的区域内-->
 
 <pjax>
 <script>
   window.pdata={}
-  pdata.ispage=false;
+  pdata.ispage=true;
   pdata.commentPath="";
   pdata.commentPlaceholder="";
   pdata.commentConfig={};
@@ -4425,7 +4194,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"qiye","url":"https://wxqiye.github.io/","logo":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"qiye","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://wxqiye.github.io/","sameAs":["https://github.com/volantis-x"],"description":""},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://wxqiye.github.io/","name":"qiye"}},{"@type":"ListItem","position":2,"item":{"@id":"https://wxqiye.github.io/categories/深度学习/","name":"深度学习"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"qiye","url":"https://wxqiye.github.io/","keywords":null,"description":"","author":{"@type":"Person","name":"qiye","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://wxqiye.github.io/","description":""},"publisher":{"@type":"Organization","name":"qiye","url":"https://wxqiye.github.io/","logo":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"https://wxqiye.github.io?s={search_term_string}"},"query-input":"required name=search_term_string"}}]</script>
+  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"qiye","url":"https://wxqiye.github.io/","logo":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"qiye","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://wxqiye.github.io/","sameAs":["https://github.com/volantis-x"],"description":""},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://wxqiye.github.io/","name":"qiye"}},{"@type":"ListItem","position":2,"item":{"@id":"https://wxqiye.github.io/categories/深度学习/","name":"深度学习"}},{"@type":"ListItem","position":3,"item":{"@id":"https://wxqiye.github.io/2022/04/29/对于感知机的疑惑以及解答/","name":"对于感知机的疑惑以及解答"}}]},{"@context":"http://schema.org","@type":"BlogPosting","headline":"对于感知机的疑惑以及解答","description":"\n学习不免产生很多疑问，如下：（只是我自己的思考，不能保证正确。）\n\n感知机为什么是线性，多层感知机为什么是非线性。不是都有非线性激活函数吗。感知机到多层感知机，到底是因为引入了非线性激活函数，还是增加了层数。\n早期感知机为什么只是加了一层，没有用其他非线性激活函数，就能处理异或问题。线性叠加多少层不还是线性吗。\n到底是如何增加非线性的。\n\n","datePublished":"2022-04-29T08:07:47.000Z","dateModified":"2022-04-29T08:59:28.988Z","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https://wxqiye.github.io/2022/04/29/%E5%AF%B9%E4%BA%8E%E6%84%9F%E7%9F%A5%E6%9C%BA%E7%9A%84%E7%96%91%E6%83%91%E4%BB%A5%E5%8F%8A%E8%A7%A3%E7%AD%94/"},"author":{"@type":"Person","name":"qiye","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://wxqiye.github.io/"},"publisher":{"@type":"Organization","name":"qiye","logo":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://wxqiye.github.io/2022/04/29/%E5%AF%B9%E4%BA%8E%E6%84%9F%E7%9F%A5%E6%9C%BA%E7%9A%84%E7%96%91%E6%83%91%E4%BB%A5%E5%8F%8A%E8%A7%A3%E7%AD%94/","wordCount":172,"articleSection":"深度学习","keywords":"深度学习","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
 
 
   <!-- 
