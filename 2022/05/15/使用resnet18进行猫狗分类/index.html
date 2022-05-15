@@ -43,7 +43,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png">
 <meta property="article:published_time" content="2022-05-15T03:59:25.000Z">
-<meta property="article:modified_time" content="2022-05-15T13:13:30.604Z">
+<meta property="article:modified_time" content="2022-05-15T15:20:55.074Z">
 <meta property="article:author" content="qiye">
 <meta property="article:tag" content="深度学习实践">
 <meta name="twitter:card" content="summary">
@@ -1765,7 +1765,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     debug: false,
     cdn: {"js":{"app":"/js/app.3690b000.js","parallax":"/js/plugins/parallax.8bf0ab10.js","rightMenu":"/js/plugins/rightMenu.1d2dd3e0.js","rightMenus":"/js/plugins/rightMenus.68379f6b.js","sites":"/js/plugins/tags/sites.76bf19b8.js","friends":"/js/plugins/tags/friends.f372da57.js","contributors":"/js/plugins/tags/contributors.aec80453.js","search":"/js/search/hexo.06d40311.js"},"css":{"style":"/css/style.7559fcd3.css"}},
     default: {"avatar":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/placeholder/avatar/round/3442075.svg","link":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/placeholder/link/8f277b4ee0ecd.svg","cover":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/placeholder/cover/76b86c0226ffd.svg","image":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/placeholder/image/2659360.svg"},
-    lastupdate: new Date(1652624373060),
+    lastupdate: new Date(1652628093437),
     sidebar: {
       for_page: ["blogger","category","tagcloud","webinfo"],
       for_post: ["toc"],
@@ -2567,7 +2567,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   <div id="post-body" itemprop="articleBody">
     <h1 id="resnet简介"><a href="#resnet简介" class="headerlink" title="resnet简介"></a>resnet简介</h1><p>使用resnet18。</p>
 <p>resnet18，18指带有权重的18层。</p>
-<p>具体原理为，加更多层不一定能使精度更高，可能学偏，越学越远，精度更低。resnet，使下一层更复杂模型包含前面小模型作为子模型，这样复杂模型就严格比前面更大，学到的结果至少不会变差。本质是使用f(x)&#x3D;x+g(x)。这样进行梯度下降时，最坏的情况是g(x)完全没用甚至起反作用，但就算是这样，最差也能找到路径走回x。因为有这个加分的存在，上层模型的梯度可以有效的传到下层，所以有效解决了梯度消失的问题。</p>
+<p>具体原理为，加更多层不一定能使精度更高，可能学偏，越学越远，精度更低。resnet，使下一层更复杂模型包含前面小模型作为子模型，这样复杂模型就严格比前面更大，学到的结果至少不会变差。本质是使用f(x)&#x3D;x+g(x)。这样进行梯度下降时，最坏的情况是g(x)完全没用甚至起反作用，但就算是这样，最差也能找到路径走回x。因为有这个加法的存在，上层模型的梯度可以有效的传到下层，所以有效解决了梯度消失的问题。</p>
 <p>具体网络架构：</p>
 <p><img src="https://img-blog.csdnimg.cn/20210615172539557.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80Mzk5OTY5MQ==,size_16,color_FFFFFF,t_70" class="lazyload" data-srcset="https://img-blog.csdnimg.cn/20210615172539557.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80Mzk5OTY5MQ==,size_16,color_FFFFFF,t_70" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="img"></p>
 <p>其中 1*1卷积层作用是如果通道数发生变换，则变换通道数使得与x与g(x)得以相加,使用最大池化层，多个高宽减半通道数加倍的卷积层，高宽不变通道数不变的卷积层，提取特征图。最后使用全局平均池化层提取单个通道的特征，拉伸成一维，作为全连接层的输入，全连接层的输出为类别数。所以最后一个全连接层我修改为了2。</p>
@@ -2650,7 +2650,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateModified" datetime="2022-05-15T21:13:30+08:00">
+          <div class="new-meta-item date" itemprop="dateModified" datetime="2022-05-15T23:20:55+08:00">
   <a class='notlink'>
     <i class="fa-solid fa-edit fa-fw" aria-hidden="true"></i>
     <p>更新于：2022年5月15日</p>
@@ -2745,10 +2745,12 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         </a>
       
       
-        <a class='next' href='/2022/05/10/%E6%95%B0%E6%8D%AE%E9%A2%84%E5%A4%84%E7%90%86/'>
-          <p class='title'>数据预处理<i class="fa-solid fa-chevron-right" aria-hidden="true"></i></p>
+        <a class='next' href='/2022/04/29/%E5%AF%B9%E4%BA%8E%E6%84%9F%E7%9F%A5%E6%9C%BA%E7%9A%84%E7%96%91%E6%83%91%E4%BB%A5%E5%8F%8A%E8%A7%A3%E7%AD%94/'>
+          <p class='title'>对于感知机的疑惑以及解答<i class="fa-solid fa-chevron-right" aria-hidden="true"></i></p>
           <p class='content'>
-</p>
+学习不免产生很多疑问，如下：（只是我自己的思考，不能保证正确。）
+
+感知机为什么是线性，多层感知机为什么是非线性。不是都有非线性激活函数吗。感知机到多层感知机，到底是因为引入了非线性激活函数，...</p>
         </a>
       
     </div>
@@ -4188,7 +4190,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"qiye","url":"https://wxqiye.github.io/","logo":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"qiye","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://wxqiye.github.io/","sameAs":["https://github.com/volantis-x"],"description":""},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://wxqiye.github.io/","name":"qiye"}},{"@type":"ListItem","position":2,"item":{"@id":"https://wxqiye.github.io/categories/深度学习实践/","name":"深度学习实践"}},{"@type":"ListItem","position":3,"item":{"@id":"https://wxqiye.github.io/2022/05/15/使用resnet18进行猫狗分类/","name":"使用resnet18进行猫狗分类"}}]},{"@context":"http://schema.org","@type":"BlogPosting","headline":"使用resnet18进行猫狗分类","description":"","datePublished":"2022-05-15T03:59:25.000Z","dateModified":"2022-05-15T13:13:30.604Z","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https://wxqiye.github.io/2022/05/15/%E4%BD%BF%E7%94%A8resnet18%E8%BF%9B%E8%A1%8C%E7%8C%AB%E7%8B%97%E5%88%86%E7%B1%BB/"},"author":{"@type":"Person","name":"qiye","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://wxqiye.github.io/"},"publisher":{"@type":"Organization","name":"qiye","logo":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://wxqiye.github.io/2022/05/15/%E4%BD%BF%E7%94%A8resnet18%E8%BF%9B%E8%A1%8C%E7%8C%AB%E7%8B%97%E5%88%86%E7%B1%BB/","wordCount":0,"articleSection":"深度学习实践","keywords":"深度学习实践","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
+  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"qiye","url":"https://wxqiye.github.io/","logo":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"qiye","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://wxqiye.github.io/","sameAs":["https://github.com/volantis-x"],"description":""},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://wxqiye.github.io/","name":"qiye"}},{"@type":"ListItem","position":2,"item":{"@id":"https://wxqiye.github.io/categories/深度学习实践/","name":"深度学习实践"}},{"@type":"ListItem","position":3,"item":{"@id":"https://wxqiye.github.io/2022/05/15/使用resnet18进行猫狗分类/","name":"使用resnet18进行猫狗分类"}}]},{"@context":"http://schema.org","@type":"BlogPosting","headline":"使用resnet18进行猫狗分类","description":"","datePublished":"2022-05-15T03:59:25.000Z","dateModified":"2022-05-15T15:20:55.074Z","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https://wxqiye.github.io/2022/05/15/%E4%BD%BF%E7%94%A8resnet18%E8%BF%9B%E8%A1%8C%E7%8C%AB%E7%8B%97%E5%88%86%E7%B1%BB/"},"author":{"@type":"Person","name":"qiye","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://wxqiye.github.io/"},"publisher":{"@type":"Organization","name":"qiye","logo":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://wxqiye.github.io/2022/05/15/%E4%BD%BF%E7%94%A8resnet18%E8%BF%9B%E8%A1%8C%E7%8C%AB%E7%8B%97%E5%88%86%E7%B1%BB/","wordCount":0,"articleSection":"深度学习实践","keywords":"深度学习实践","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
 
 
   <!-- 
