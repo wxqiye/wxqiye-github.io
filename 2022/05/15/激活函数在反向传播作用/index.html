@@ -39,11 +39,11 @@
 <meta property="og:title" content="激活函数在反向传播作用">
 <meta property="og:url" content="https://wxqiye.github.io/2022/05/15/%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0%E5%9C%A8%E5%8F%8D%E5%90%91%E4%BC%A0%E6%92%AD%E4%BD%9C%E7%94%A8/index.html">
 <meta property="og:site_name" content="qiye">
-<meta property="og:description" content="我们都知道激活函数作用为增加模型非线性性，反向传播，是用损失函数算对各个参数的偏导，再用梯度下降进行更新。那么激活函数在反向传播的作用是什么呢，要明晰这一点，我们需要理解具体过程。 首先重新回顾激活函数跟反向传播 激活函数">
+<meta property="og:description" content="我们都知道激活函数作用为增加模型非线性性。而反向传播，是用损失函数算对各个参数的偏导，再用梯度下降进行更新。那么激活函数在反向传播的作用是什么呢，要明晰这一点，我们需要理解具体过程。 在我看来，激活函数在反向传播的主要作用，是在反向传播算偏导时，多乘了一项，举例即：  反向传播算法计算误差项时每一层都要乘以本层激活函数的导数。 所以增加了非线性性，并且依此算出这个非线性函数的偏导。 首先重新回顾激">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png">
 <meta property="article:published_time" content="2022-05-15T05:54:24.000Z">
-<meta property="article:modified_time" content="2022-05-15T06:44:59.129Z">
+<meta property="article:modified_time" content="2022-05-15T10:10:15.442Z">
 <meta property="article:author" content="qiye">
 <meta property="article:tag" content="深度学习">
 <meta name="twitter:card" content="summary">
@@ -1765,7 +1765,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     debug: false,
     cdn: {"js":{"app":"/js/app.3690b000.js","parallax":"/js/plugins/parallax.8bf0ab10.js","rightMenu":"/js/plugins/rightMenu.1d2dd3e0.js","rightMenus":"/js/plugins/rightMenus.68379f6b.js","sites":"/js/plugins/tags/sites.76bf19b8.js","friends":"/js/plugins/tags/friends.f372da57.js","contributors":"/js/plugins/tags/contributors.aec80453.js","search":"/js/search/hexo.06d40311.js"},"css":{"style":"/css/style.7559fcd3.css"}},
     default: {"avatar":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/placeholder/avatar/round/3442075.svg","link":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/placeholder/link/8f277b4ee0ecd.svg","cover":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/placeholder/cover/76b86c0226ffd.svg","image":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/placeholder/image/2659360.svg"},
-    lastupdate: new Date(1652608714145),
+    lastupdate: new Date(1652609440055),
     sidebar: {
       for_page: ["blogger","category","tagcloud","webinfo"],
       for_post: ["toc"],
@@ -2565,10 +2565,38 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
   <div id="layoutHelper-page-plugins"></div>
   <div id="post-body" itemprop="articleBody">
-    <p>我们都知道激活函数作用为增加模型非线性性，反向传播，是用损失函数算对各个参数的偏导，再用梯度下降进行更新。那么激活函数在反向传播的作用是什么呢，要明晰这一点，我们需要理解具体过程。</p>
-<p>首先重新回顾激活函数跟反向传播</p>
-<h1 id="激活函数"><a href="#激活函数" class="headerlink" title="激活函数"></a>激活函数</h1>
+    <p>我们都知道激活函数作用为增加模型非线性性。而反向传播，是用损失函数算对各个参数的偏导，再用梯度下降进行更新。那么激活函数在反向传播的作用是什么呢，要明晰这一点，我们需要理解具体过程。</p>
+<p>在我看来，激活函数在反向传播的主要作用，是在反向传播算偏导时，多乘了一项，举例即：</p>
+<p><img src="https://imagemarkdownimage.oss-cn-beijing.aliyuncs.com/img/image-20220515162436911.png" class="lazyload" data-srcset="https://imagemarkdownimage.oss-cn-beijing.aliyuncs.com/img/image-20220515162436911.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="image-20220515162436911"></p>
+<p>反向传播算法计算误差项时每一层都要乘以本层激活函数的导数。</p>
+<p>所以增加了非线性性，并且依此算出这个非线性函数的偏导。</p>
+<p>首先重新回顾激活函数跟反向传播的一些核心概念。</p>
+<div class="story post-story"><h2 id="激活函数"><a href="#激活函数" class="headerlink" title="激活函数"></a>激活函数</h2><p>我们为什么需要激活函数？</p>
+<p>首先明晰神经网络的本质就是一个多层复合函数。</p>
+<p>已知，线性函数无论嵌套多少层，他依然是线性，所以他的目标函数只可能是线性。我们无论对他进行怎样的梯度求导，因其目标函数为线性，最终也只能求得线性。</p>
+<p>于是就有了激活函数，理论上，只要激活函数恰当，神经元个数足够多，使用3层（即包含一个隐藏层）的神经网络，就可以实现对于一切函数的逼近。数学定理为万能逼近原则。</p>
+<p><img src="https://imagemarkdownimage.oss-cn-beijing.aliyuncs.com/img/image-20220515150248157.png" class="lazyload" data-srcset="https://imagemarkdownimage.oss-cn-beijing.aliyuncs.com/img/image-20220515150248157.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="image-20220515150248157"></p>
+<p><img src="https://imagemarkdownimage.oss-cn-beijing.aliyuncs.com/img/image-20220515150416321.png" class="lazyload" data-srcset="https://imagemarkdownimage.oss-cn-beijing.aliyuncs.com/img/image-20220515150416321.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="image-20220515150416321"></p>
+<p>有此定理，我们至少知道，使用激活函数后，他的目标函数，理论上是可以拟合成为任何我们需要的函数的。那就有用反向传播，梯度下降，进行逼近的可能性。</p>
+</div><div class="story post-story"><h2 id="反向传播"><a href="#反向传播" class="headerlink" title="反向传播"></a>反向传播</h2><p>反向传播，就是用损失函数求每一个参数的偏导。具体计算可能较复杂，但理解起来较简单。</p>
+</div><div class="story post-story"><h2 id="激活函数在反向传播的作用"><a href="#激活函数在反向传播的作用" class="headerlink" title="激活函数在反向传播的作用"></a>激活函数在反向传播的作用</h2><p>我们复现反向传播的具体过程：</p>
+<p><img src="https://imagemarkdownimage.oss-cn-beijing.aliyuncs.com/img/image-20220515153645396.png" class="lazyload" data-srcset="https://imagemarkdownimage.oss-cn-beijing.aliyuncs.com/img/image-20220515153645396.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="image-20220515153645396"></p>
+<p><img src="https://imagemarkdownimage.oss-cn-beijing.aliyuncs.com/img/image-20220515153920626.png" class="lazyload" data-srcset="https://imagemarkdownimage.oss-cn-beijing.aliyuncs.com/img/image-20220515153920626.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="image-20220515153920626"></p>
+<p>对于参数w5可得</p>
+<p><img src="https://imagemarkdownimage.oss-cn-beijing.aliyuncs.com/img/image-20220515153722769.png" class="lazyload" data-srcset="https://imagemarkdownimage.oss-cn-beijing.aliyuncs.com/img/image-20220515153722769.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="image-20220515153722769"></p>
+<p><img src="https://imagemarkdownimage.oss-cn-beijing.aliyuncs.com/img/image-20220515153950235.png" class="lazyload" data-srcset="https://imagemarkdownimage.oss-cn-beijing.aliyuncs.com/img/image-20220515153950235.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="image-20220515153950235"></p>
+<p><img src="https://imagemarkdownimage.oss-cn-beijing.aliyuncs.com/img/image-20220515154009717.png" class="lazyload" data-srcset="https://imagemarkdownimage.oss-cn-beijing.aliyuncs.com/img/image-20220515154009717.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="image-20220515154009717"></p>
+<p><img src="https://imagemarkdownimage.oss-cn-beijing.aliyuncs.com/img/image-20220515154039331.png" class="lazyload" data-srcset="https://imagemarkdownimage.oss-cn-beijing.aliyuncs.com/img/image-20220515154039331.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="image-20220515154039331"></p>
+<p>首先，我们明确，激活函数本身是没有参数可更新的。我们可以看到，反向传播算法计算误差项时每一层都要乘以本层激活函数的导数，在本例中即outo1对neto1的偏导。即：</p>
+<p>c为本层误差，z为参数，a为激活值。</p>
+<p><img src="https://imagemarkdownimage.oss-cn-beijing.aliyuncs.com/img/image-20220515161607198.png" class="lazyload" data-srcset="https://imagemarkdownimage.oss-cn-beijing.aliyuncs.com/img/image-20220515161607198.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="image-20220515161607198"></p>
+<p>若存在激活函数，有了非线性，我们可以得到如下偏导：</p>
+<p><img src="https://imagemarkdownimage.oss-cn-beijing.aliyuncs.com/img/image-20220515155734052.png" class="lazyload" data-srcset="https://imagemarkdownimage.oss-cn-beijing.aliyuncs.com/img/image-20220515155734052.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="image-20220515155734052"></p>
+<p>即<img src="https://imagemarkdownimage.oss-cn-beijing.aliyuncs.com/img/image-20220515162245909.png" class="lazyload" data-srcset="https://imagemarkdownimage.oss-cn-beijing.aliyuncs.com/img/image-20220515162245909.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="image-20220515162245909"></p>
+<p>若不存在激活函数，为线性，我们可以得到如下偏导：</p>
+<p><img src="https://imagemarkdownimage.oss-cn-beijing.aliyuncs.com/img/7603D2FD2096D0D90C253D25938EB59B.jpg" class="lazyload" data-srcset="https://imagemarkdownimage.oss-cn-beijing.aliyuncs.com/img/7603D2FD2096D0D90C253D25938EB59B.jpg" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="7603D2FD2096D0D90C253D25938EB59B"></p>
 
+</div>
   </div>
   
   
@@ -2603,7 +2631,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateModified" datetime="2022-05-15T14:44:59+08:00">
+          <div class="new-meta-item date" itemprop="dateModified" datetime="2022-05-15T18:10:15+08:00">
   <a class='notlink'>
     <i class="fa-solid fa-edit fa-fw" aria-hidden="true"></i>
     <p>更新于：2022年5月15日</p>
@@ -2744,7 +2772,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
 
     <div class='content'>
-        
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0"><span class="toc-number">1.</span> <span class="toc-text">激活函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%8D%E5%90%91%E4%BC%A0%E6%92%AD"><span class="toc-number">2.</span> <span class="toc-text">反向传播</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0%E5%9C%A8%E5%8F%8D%E5%90%91%E4%BC%A0%E6%92%AD%E7%9A%84%E4%BD%9C%E7%94%A8"><span class="toc-number">3.</span> <span class="toc-text">激活函数在反向传播的作用</span></a></li></ol>
     </div>
   </section>
 
@@ -4135,7 +4163,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"qiye","url":"https://wxqiye.github.io/","logo":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"qiye","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://wxqiye.github.io/","sameAs":["https://github.com/volantis-x"],"description":""},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://wxqiye.github.io/","name":"qiye"}},{"@type":"ListItem","position":2,"item":{"@id":"https://wxqiye.github.io/categories/深度学习/","name":"深度学习"}},{"@type":"ListItem","position":3,"item":{"@id":"https://wxqiye.github.io/2022/05/15/激活函数在反向传播作用/","name":"激活函数在反向传播作用"}}]},{"@context":"http://schema.org","@type":"BlogPosting","headline":"激活函数在反向传播作用","description":"","datePublished":"2022-05-15T05:54:24.000Z","dateModified":"2022-05-15T06:44:59.129Z","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https://wxqiye.github.io/2022/05/15/%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0%E5%9C%A8%E5%8F%8D%E5%90%91%E4%BC%A0%E6%92%AD%E4%BD%9C%E7%94%A8/"},"author":{"@type":"Person","name":"qiye","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://wxqiye.github.io/"},"publisher":{"@type":"Organization","name":"qiye","logo":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://wxqiye.github.io/2022/05/15/%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0%E5%9C%A8%E5%8F%8D%E5%90%91%E4%BC%A0%E6%92%AD%E4%BD%9C%E7%94%A8/","wordCount":0,"articleSection":"深度学习","keywords":"深度学习","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
+  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"qiye","url":"https://wxqiye.github.io/","logo":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"qiye","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://wxqiye.github.io/","sameAs":["https://github.com/volantis-x"],"description":""},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://wxqiye.github.io/","name":"qiye"}},{"@type":"ListItem","position":2,"item":{"@id":"https://wxqiye.github.io/categories/深度学习/","name":"深度学习"}},{"@type":"ListItem","position":3,"item":{"@id":"https://wxqiye.github.io/2022/05/15/激活函数在反向传播作用/","name":"激活函数在反向传播作用"}}]},{"@context":"http://schema.org","@type":"BlogPosting","headline":"激活函数在反向传播作用","description":"","datePublished":"2022-05-15T05:54:24.000Z","dateModified":"2022-05-15T10:10:15.442Z","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https://wxqiye.github.io/2022/05/15/%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0%E5%9C%A8%E5%8F%8D%E5%90%91%E4%BC%A0%E6%92%AD%E4%BD%9C%E7%94%A8/"},"author":{"@type":"Person","name":"qiye","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://wxqiye.github.io/"},"publisher":{"@type":"Organization","name":"qiye","logo":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://wxqiye.github.io/2022/05/15/%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0%E5%9C%A8%E5%8F%8D%E5%90%91%E4%BC%A0%E6%92%AD%E4%BD%9C%E7%94%A8/","wordCount":0,"articleSection":"深度学习","keywords":"深度学习","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
 
 
   <!-- 
