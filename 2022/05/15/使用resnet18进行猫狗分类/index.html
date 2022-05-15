@@ -43,7 +43,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png">
 <meta property="article:published_time" content="2022-05-15T03:59:25.000Z">
-<meta property="article:modified_time" content="2022-05-15T09:52:04.305Z">
+<meta property="article:modified_time" content="2022-05-15T13:13:30.604Z">
 <meta property="article:author" content="qiye">
 <meta property="article:tag" content="深度学习实践">
 <meta name="twitter:card" content="summary">
@@ -1765,7 +1765,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     debug: false,
     cdn: {"js":{"app":"/js/app.3690b000.js","parallax":"/js/plugins/parallax.8bf0ab10.js","rightMenu":"/js/plugins/rightMenu.1d2dd3e0.js","rightMenus":"/js/plugins/rightMenus.68379f6b.js","sites":"/js/plugins/tags/sites.76bf19b8.js","friends":"/js/plugins/tags/friends.f372da57.js","contributors":"/js/plugins/tags/contributors.aec80453.js","search":"/js/search/hexo.06d40311.js"},"css":{"style":"/css/style.7559fcd3.css"}},
     default: {"avatar":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/placeholder/avatar/round/3442075.svg","link":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/placeholder/link/8f277b4ee0ecd.svg","cover":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/placeholder/cover/76b86c0226ffd.svg","image":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/placeholder/image/2659360.svg"},
-    lastupdate: new Date(1652609937873),
+    lastupdate: new Date(1652624373060),
     sidebar: {
       for_page: ["blogger","category","tagcloud","webinfo"],
       for_post: ["toc"],
@@ -2567,7 +2567,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   <div id="post-body" itemprop="articleBody">
     <h1 id="resnet简介"><a href="#resnet简介" class="headerlink" title="resnet简介"></a>resnet简介</h1><p>使用resnet18。</p>
 <p>resnet18，18指带有权重的18层。</p>
-<p>具体原理为，加更多层不一定能使精度更高，可能学偏，越学越远，精度更低。resnet，使下一层更复杂模型包含前面小模型作为子模型，这样复杂模型就严格比前面更大，学到的结果至少不会变差。本质是使用f(x)&#x3D;x+g(x)。这样进行梯度下降时，最坏的情况是g(x)完全没用甚至起反作用，但就算是这样，最差也能找到路径走回x。</p>
+<p>具体原理为，加更多层不一定能使精度更高，可能学偏，越学越远，精度更低。resnet，使下一层更复杂模型包含前面小模型作为子模型，这样复杂模型就严格比前面更大，学到的结果至少不会变差。本质是使用f(x)&#x3D;x+g(x)。这样进行梯度下降时，最坏的情况是g(x)完全没用甚至起反作用，但就算是这样，最差也能找到路径走回x。因为有这个加分的存在，上层模型的梯度可以有效的传到下层，所以有效解决了梯度消失的问题。</p>
 <p>具体网络架构：</p>
 <p><img src="https://img-blog.csdnimg.cn/20210615172539557.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80Mzk5OTY5MQ==,size_16,color_FFFFFF,t_70" class="lazyload" data-srcset="https://img-blog.csdnimg.cn/20210615172539557.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80Mzk5OTY5MQ==,size_16,color_FFFFFF,t_70" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="img"></p>
 <p>其中 1*1卷积层作用是如果通道数发生变换，则变换通道数使得与x与g(x)得以相加,使用最大池化层，多个高宽减半通道数加倍的卷积层，高宽不变通道数不变的卷积层，提取特征图。最后使用全局平均池化层提取单个通道的特征，拉伸成一维，作为全连接层的输入，全连接层的输出为类别数。所以最后一个全连接层我修改为了2。</p>
@@ -2580,7 +2580,8 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <p>我们可以看出模型收敛效果较好。损失函数下降较快。在eopch为12左右模型就达到了收敛。但是训练精度明显大于测试精度。</p>
 <p>在valid数据机上测得训练精度为0.89。</p>
 <p>可以看出模型存在一定的过拟合现象，对于部分图片模型选择了记住他们，背住他们，导致泛化误差相对偏大。从而模型在背过答案的训练集上精度最高，在验证集与测试集上效果要差一点。</p>
-</div><div class="story post-story"><h2 id="使用dropout"><a href="#使用dropout" class="headerlink" title="使用dropout"></a>使用dropout</h2><p>精度与损失函数图：</p>
+</div><div class="story post-story"><h2 id="使用dropout"><a href="#使用dropout" class="headerlink" title="使用dropout"></a>使用dropout</h2><p><img src="https://imagemarkdownimage.oss-cn-beijing.aliyuncs.com/img/image-20220515184743740.png" class="lazyload" data-srcset="https://imagemarkdownimage.oss-cn-beijing.aliyuncs.com/img/image-20220515184743740.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="image-20220515184743740"></p>
+<p>精度与损失函数图：</p>
 <p><img src="https://imagemarkdownimage.oss-cn-beijing.aliyuncs.com/img/dropout_resnet18.jpg" class="lazyload" data-srcset="https://imagemarkdownimage.oss-cn-beijing.aliyuncs.com/img/dropout_resnet18.jpg" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="dropout_resnet18"></p>
 <p>在valid数据集上训练结果：</p>
 <p><img src="https://imagemarkdownimage.oss-cn-beijing.aliyuncs.com/img/image-20220515144652684.png" class="lazyload" data-srcset="https://imagemarkdownimage.oss-cn-beijing.aliyuncs.com/img/image-20220515144652684.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="image-20220515144652684"></p>
@@ -2590,7 +2591,8 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <p>由此理论，再加入dropout，随机置0，再度增加噪音并无必要，查阅相关文献发现，bn层与dropout同时使用，甚至会使效果变差。</p>
 <p>损失函数的震荡可能就是由于dropout的随机置零，导致其输出变化过大，从而在算损失函数的时候，变化过大。</p>
 <p>且当前卷积神经网络已经普遍流行使用bn层，不使用dropout层，因为前者效果比后者好。</p>
-</div><div class="story post-story"><h2 id="删去bn层"><a href="#删去bn层" class="headerlink" title="删去bn层"></a>删去bn层</h2><p>精度与损失函数图：</p>
+</div><div class="story post-story"><h2 id="删去bn层"><a href="#删去bn层" class="headerlink" title="删去bn层"></a>删去bn层</h2><p><img src="https://imagemarkdownimage.oss-cn-beijing.aliyuncs.com/img/image-20220515184849719.png" class="lazyload" data-srcset="https://imagemarkdownimage.oss-cn-beijing.aliyuncs.com/img/image-20220515184849719.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="image-20220515184849719"></p>
+<p>精度与损失函数图：</p>
 <p><img src="https://imagemarkdownimage.oss-cn-beijing.aliyuncs.com/img/%E6%97%A0batch_normal_resnet18.jpg" class="lazyload" data-srcset="https://imagemarkdownimage.oss-cn-beijing.aliyuncs.com/img/%E6%97%A0batch_normal_resnet18.jpg" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="无batch_normal_resnet18"></p>
 <p>在valid数据集上训练结果：</p>
 <p><img src="https://imagemarkdownimage.oss-cn-beijing.aliyuncs.com/img/image-20220515163756636.png" class="lazyload" data-srcset="https://imagemarkdownimage.oss-cn-beijing.aliyuncs.com/img/image-20220515163756636.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="image-20220515163756636"></p>
@@ -2598,9 +2600,21 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <p>这是因为bn通过减均值除方差，使他成为均值为0方差为1的分布，同时加入一定的线性变化，使得其分布在较稳定的一定范围内，且存在回到本来分布的途径，从而增加了恢复了一部分数据的原始表达能力。</p>
 <p>这样做了之后，输入分布都较为稳定，学习也就相对稳定，上层网络也不需要一直调整很多的参数来适应下层不断改变的分布，从而加快了网络的训练速度。</p>
 <p>所以加了bn层后，因输入分布都是较为稳定分布，学习较为稳定，所以损失函数下降的较为稳定，但是删去bn层后，损失函数就开始震荡不那么稳定了。</p>
-</div><div class="story post-story"><h2 id="删去Residual-connection"><a href="#删去Residual-connection" class="headerlink" title="删去Residual connection"></a>删去Residual connection</h2><p>精度与损失函数图：</p>
+</div><div class="story post-story"><h2 id="删去Residual-connection"><a href="#删去Residual-connection" class="headerlink" title="删去Residual connection"></a>删去Residual connection</h2><p><img src="https://imagemarkdownimage.oss-cn-beijing.aliyuncs.com/img/image-20220515184947485.png" class="lazyload" data-srcset="https://imagemarkdownimage.oss-cn-beijing.aliyuncs.com/img/image-20220515184947485.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="image-20220515184947485"></p>
+<p>精度与损失函数图：</p>
+<p><img src="https://imagemarkdownimage.oss-cn-beijing.aliyuncs.com/img/no_reidual_resnet18.jpg" class="lazyload" data-srcset="https://imagemarkdownimage.oss-cn-beijing.aliyuncs.com/img/no_reidual_resnet18.jpg" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="no_reidual_resnet18"></p>
 <p>在valid数据集上训练结果：</p>
-</div><div class="story post-story"><h2 id="减少resnet18层数"><a href="#减少resnet18层数" class="headerlink" title="减少resnet18层数"></a>减少resnet18层数</h2>
+<p><img src="https://imagemarkdownimage.oss-cn-beijing.aliyuncs.com/img/image-20220515182329361.png" class="lazyload" data-srcset="https://imagemarkdownimage.oss-cn-beijing.aliyuncs.com/img/image-20220515182329361.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="image-20220515182329361"></p>
+<p>通过对比可以知道，删去Residual connection层，对于模型测试精度，在前期，未训练到最优点时，并无太大影响。</p>
+<p>但是如果增加epoch次数，由于没有使用残差结构，可能会出现模型精度达到最高点后，开始降低的情况。</p>
+</div><div class="story post-story"><h2 id="减少resnet18层数"><a href="#减少resnet18层数" class="headerlink" title="减少resnet18层数"></a>减少resnet18层数</h2><p>删去b5层</p>
+<p><img src="https://imagemarkdownimage.oss-cn-beijing.aliyuncs.com/img/image-20220515182728121.png" class="lazyload" data-srcset="https://imagemarkdownimage.oss-cn-beijing.aliyuncs.com/img/image-20220515182728121.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="image-20220515182728121"></p>
+<p>精度与损失函数图：</p>
+<p><img src="https://imagemarkdownimage.oss-cn-beijing.aliyuncs.com/img/change_resnet18.jpg" class="lazyload" data-srcset="https://imagemarkdownimage.oss-cn-beijing.aliyuncs.com/img/change_resnet18.jpg" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="change_resnet18"></p>
+<p>在valid数据集上训练结果：</p>
+<p><img src="https://imagemarkdownimage.oss-cn-beijing.aliyuncs.com/img/image-20220515202228501.png" class="lazyload" data-srcset="https://imagemarkdownimage.oss-cn-beijing.aliyuncs.com/img/image-20220515202228501.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="image-20220515202228501"></p>
+<p>通过对比得知，模型在删去b5层后，在训练验证测试集上的精度有了明显的降低。说明减少深度后，模型对数据的拟合能力降低，需要进行更多轮的迭代，才可能达到理想效果。</p>
+
 </div>
   </div>
   
@@ -2636,7 +2650,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateModified" datetime="2022-05-15T17:52:04+08:00">
+          <div class="new-meta-item date" itemprop="dateModified" datetime="2022-05-15T21:13:30+08:00">
   <a class='notlink'>
     <i class="fa-solid fa-edit fa-fw" aria-hidden="true"></i>
     <p>更新于：2022年5月15日</p>
@@ -2731,8 +2745,8 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         </a>
       
       
-        <a class='next' href='/2022/05/13/%E6%A8%A1%E5%9E%8B%E9%80%89%E6%8B%A9/'>
-          <p class='title'>模型选择<i class="fa-solid fa-chevron-right" aria-hidden="true"></i></p>
+        <a class='next' href='/2022/05/10/%E6%95%B0%E6%8D%AE%E9%A2%84%E5%A4%84%E7%90%86/'>
+          <p class='title'>数据预处理<i class="fa-solid fa-chevron-right" aria-hidden="true"></i></p>
           <p class='content'>
 </p>
         </a>
@@ -4174,7 +4188,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"qiye","url":"https://wxqiye.github.io/","logo":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"qiye","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://wxqiye.github.io/","sameAs":["https://github.com/volantis-x"],"description":""},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://wxqiye.github.io/","name":"qiye"}},{"@type":"ListItem","position":2,"item":{"@id":"https://wxqiye.github.io/categories/深度学习实践/","name":"深度学习实践"}},{"@type":"ListItem","position":3,"item":{"@id":"https://wxqiye.github.io/2022/05/15/使用resnet18进行猫狗分类/","name":"使用resnet18进行猫狗分类"}}]},{"@context":"http://schema.org","@type":"BlogPosting","headline":"使用resnet18进行猫狗分类","description":"","datePublished":"2022-05-15T03:59:25.000Z","dateModified":"2022-05-15T09:52:04.305Z","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https://wxqiye.github.io/2022/05/15/%E4%BD%BF%E7%94%A8resnet18%E8%BF%9B%E8%A1%8C%E7%8C%AB%E7%8B%97%E5%88%86%E7%B1%BB/"},"author":{"@type":"Person","name":"qiye","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://wxqiye.github.io/"},"publisher":{"@type":"Organization","name":"qiye","logo":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://wxqiye.github.io/2022/05/15/%E4%BD%BF%E7%94%A8resnet18%E8%BF%9B%E8%A1%8C%E7%8C%AB%E7%8B%97%E5%88%86%E7%B1%BB/","wordCount":0,"articleSection":"深度学习实践","keywords":"深度学习实践","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
+  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"qiye","url":"https://wxqiye.github.io/","logo":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"qiye","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://wxqiye.github.io/","sameAs":["https://github.com/volantis-x"],"description":""},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://wxqiye.github.io/","name":"qiye"}},{"@type":"ListItem","position":2,"item":{"@id":"https://wxqiye.github.io/categories/深度学习实践/","name":"深度学习实践"}},{"@type":"ListItem","position":3,"item":{"@id":"https://wxqiye.github.io/2022/05/15/使用resnet18进行猫狗分类/","name":"使用resnet18进行猫狗分类"}}]},{"@context":"http://schema.org","@type":"BlogPosting","headline":"使用resnet18进行猫狗分类","description":"","datePublished":"2022-05-15T03:59:25.000Z","dateModified":"2022-05-15T13:13:30.604Z","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https://wxqiye.github.io/2022/05/15/%E4%BD%BF%E7%94%A8resnet18%E8%BF%9B%E8%A1%8C%E7%8C%AB%E7%8B%97%E5%88%86%E7%B1%BB/"},"author":{"@type":"Person","name":"qiye","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://wxqiye.github.io/"},"publisher":{"@type":"Organization","name":"qiye","logo":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://wxqiye.github.io/2022/05/15/%E4%BD%BF%E7%94%A8resnet18%E8%BF%9B%E8%A1%8C%E7%8C%AB%E7%8B%97%E5%88%86%E7%B1%BB/","wordCount":0,"articleSection":"深度学习实践","keywords":"深度学习实践","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
 
 
   <!-- 

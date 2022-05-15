@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <!-- SEO相关 -->
   
-  <link rel="canonical" href="https://wxqiye.github.io/2022/04/23/resnet/"/>
+  <link rel="canonical" href="https://wxqiye.github.io/2022/04/29/卷积神经网络架构汇总/"/>
   <!-- 渲染优化 -->
     <meta http-equiv='x-dns-prefetch-control' content='on' />
       <link rel='dns-prefetch' href='https://npm.elemecdn.com'>
@@ -31,19 +31,21 @@
   <!-- feed -->
   <!-- 页面元数据 -->
   <pjax>
-  <title>resnet - qiye</title>
+  <title>卷积神经网络架构汇总 - qiye</title>
   <meta name="keywords" content="深度学习,null">
-  <meta desc name="description" content="qiye - qiye - qiye">
+  <meta desc name="description" content="
+本文主要回顾各个经典的卷积神经网络，便于复习
+ - qiye - qiye">
   
 <meta property="og:type" content="article">
-<meta property="og:title" content="resnet">
-<meta property="og:url" content="https://wxqiye.github.io/2022/04/23/resnet/index.html">
+<meta property="og:title" content="卷积神经网络架构汇总">
+<meta property="og:url" content="https://wxqiye.github.io/2022/04/29/%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E6%9E%B6%E6%9E%84%E6%B1%87%E6%80%BB/index.html">
 <meta property="og:site_name" content="qiye">
-<meta property="og:description" content="希望在下下周可以填坑到这里！">
+<meta property="og:description" content="本文主要回顾各个经典的卷积神经网络，便于复习">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png">
-<meta property="article:published_time" content="2022-04-23T12:19:08.000Z">
-<meta property="article:modified_time" content="2022-04-28T06:34:55.246Z">
+<meta property="article:published_time" content="2022-04-29T04:55:20.000Z">
+<meta property="article:modified_time" content="2022-05-15T14:18:38.421Z">
 <meta property="article:author" content="qiye">
 <meta property="article:tag" content="深度学习">
 <meta name="twitter:card" content="summary">
@@ -1765,7 +1767,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     debug: false,
     cdn: {"js":{"app":"/js/app.3690b000.js","parallax":"/js/plugins/parallax.8bf0ab10.js","rightMenu":"/js/plugins/rightMenu.1d2dd3e0.js","rightMenus":"/js/plugins/rightMenus.68379f6b.js","sites":"/js/plugins/tags/sites.76bf19b8.js","friends":"/js/plugins/tags/friends.f372da57.js","contributors":"/js/plugins/tags/contributors.aec80453.js","search":"/js/search/hexo.06d40311.js"},"css":{"style":"/css/style.7559fcd3.css"}},
     default: {"avatar":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/placeholder/avatar/round/3442075.svg","link":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/placeholder/link/8f277b4ee0ecd.svg","cover":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/placeholder/cover/76b86c0226ffd.svg","image":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/placeholder/image/2659360.svg"},
-    lastupdate: new Date(1652609937873),
+    lastupdate: new Date(1652624373060),
     sidebar: {
       for_page: ["blogger","category","tagcloud","webinfo"],
       for_post: ["toc"],
@@ -2489,7 +2491,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
           
 <div id="l_main" class=''>
   <article itemscope itemtype="http://schema.org/Article" class="article post white-box reveal md shadow floatable blur article-type-post" id="post" itemscope itemprop="blogPost">
-  <link itemprop="mainEntityOfPage" href="https://wxqiye.github.io/2022/04/23/resnet/">
+  <link itemprop="mainEntityOfPage" href="https://wxqiye.github.io/2022/04/29/%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E6%9E%B6%E6%9E%84%E6%B1%87%E6%80%BB/">
   <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
     <meta itemprop="name" content="qiye">
   </span>
@@ -2510,7 +2512,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     
     
       <h1 class="title" itemprop="name headline">
-        resnet
+        卷积神经网络架构汇总
       </h1>
       <div class='new-meta-box'>
         
@@ -2541,10 +2543,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
           
         
           
-            <div class="new-meta-item date" itemprop="dateCreated datePublished" datetime="2022-04-23T20:19:08+08:00">
+            <div class="new-meta-item date" itemprop="dateCreated datePublished" datetime="2022-04-29T12:55:20+08:00">
   <a class='notlink'>
     <i class="fa-solid fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：2022年4月23日</p>
+    <p>发布于：2022年4月29日</p>
   </a>
 </div>
 
@@ -2565,9 +2567,34 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
   <div id="layoutHelper-page-plugins"></div>
   <div id="post-body" itemprop="articleBody">
-    <p>希望在下下周可以填坑到这里！</p>
+    <blockquote>
+<p>本文主要回顾各个经典的卷积神经网络，便于复习</p>
+</blockquote>
+<span id="more"></span>
 
 
+
+<div class="story post-story"><h2 id="Lenet"><a href="#Lenet" class="headerlink" title="Lenet"></a>Lenet</h2><p><img src="https://imagemarkdownimage.oss-cn-beijing.aliyuncs.com/img/image-20220515214305547.png" class="lazyload" data-srcset="https://imagemarkdownimage.oss-cn-beijing.aliyuncs.com/img/image-20220515214305547.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="image-20220515214305547"></p>
+<p>比较简单不对解释，从卷积到全连接的时候，他直接选择了拉长，没有用平均池化。</p>
+<p>最后使用softmax</p>
+</div><div class="story post-story"><h2 id="Alexnet"><a href="#Alexnet" class="headerlink" title="Alexnet"></a>Alexnet</h2><p>本质是更深更大的Lenet</p>
+<p><img src="https://bkimg.cdn.bcebos.com/pic/3c6d55fbb2fb4316e902e8882ca4462309f7d327?x-bce-process=image/resize,m_lfit,w_536,limit_1/format,f_jpg" class="lazyload" data-srcset="https://bkimg.cdn.bcebos.com/pic/3c6d55fbb2fb4316e902e8882ca4462309f7d327?x-bce-process=image/resize,m_lfit,w_536,limit_1/format,f_jpg" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="AlexNet"></p>
+<p>与lent相比，采用了最大池化层，使用ReLU而不是sigmoid。</p>
+<p>在全连接层的前两层使用dropout。</p>
+<p>使用局部响应归一化，Local Response Normalization，使其中比较大的值变的相对更大，增加局部对比度。（不是很懂这个方法，下来再更新）</p>
+</div><div class="story post-story"><h2 id="VGG"><a href="#VGG" class="headerlink" title="VGG"></a>VGG</h2><p>提出vgg块，相当于将Alexnet的这一块给规则化<img src="https://imagemarkdownimage.oss-cn-beijing.aliyuncs.com/img/image-20220515220526335.png" class="lazyload" data-srcset="https://imagemarkdownimage.oss-cn-beijing.aliyuncs.com/img/image-20220515220526335.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="image-20220515220526335"></p>
+<p>成为</p>
+<p><img src="https://imagemarkdownimage.oss-cn-beijing.aliyuncs.com/img/image-20220515220341606.png" class="lazyload" data-srcset="https://imagemarkdownimage.oss-cn-beijing.aliyuncs.com/img/image-20220515220341606.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="image-20220515220341606"></p>
+<p>在同样计算开销下，使用3* 3更深的卷积比使用5* 5更浅的效果更好。所以vgg采用3*3。</p>
+<p>vgg16架构。</p>
+<p><img src="https://imagemarkdownimage.oss-cn-beijing.aliyuncs.com/img/image-20220515220908801.png" class="lazyload" data-srcset="https://imagemarkdownimage.oss-cn-beijing.aliyuncs.com/img/image-20220515220908801.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="image-20220515220908801"></p>
+</div><div class="story post-story"><h2 id="NIN"><a href="#NIN" class="headerlink" title="NIN"></a>NIN</h2><p>一卷积加两个1*1卷积，1 * 1卷积层不改变形状，大小，通道数，只是当做全连接层混合通道使用。</p>
+<p><img src="https://imagemarkdownimage.oss-cn-beijing.aliyuncs.com/img/image-20220515221253299.png" class="lazyload" data-srcset="https://imagemarkdownimage.oss-cn-beijing.aliyuncs.com/img/image-20220515221253299.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="image-20220515221253299"></p>
+<p><img src="https://imagemarkdownimage.oss-cn-beijing.aliyuncs.com/img/image-20220515221354255.png" class="lazyload" data-srcset="https://imagemarkdownimage.oss-cn-beijing.aliyuncs.com/img/image-20220515221354255.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="image-20220515221354255"></p>
+<p><img src="https://imagemarkdownimage.oss-cn-beijing.aliyuncs.com/img/image-20220515221547065.png" class="lazyload" data-srcset="https://imagemarkdownimage.oss-cn-beijing.aliyuncs.com/img/image-20220515221547065.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="image-20220515221547065"></p>
+<p>最后使用全局平均池化层，融合每一个通道的信息，甚至最后一层，安排合理的话，也不用全连接，将每一个通道融合就是输出了。</p>
+
+</div>
   </div>
   
   
@@ -2585,7 +2612,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
               
             
               
-                <p>本文永久链接是：<a href=https://wxqiye.github.io/2022/04/23/resnet/>https://wxqiye.github.io/2022/04/23/resnet/</a></p>
+                <p>本文永久链接是：<a href=https://wxqiye.github.io/2022/04/29/%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E6%9E%B6%E6%9E%84%E6%B1%87%E6%80%BB/>https://wxqiye.github.io/2022/04/29/%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E6%9E%B6%E6%9E%84%E6%B1%87%E6%80%BB/</a></p>
               
             
           </blockquote>
@@ -2602,10 +2629,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateModified" datetime="2022-04-28T14:34:55+08:00">
+          <div class="new-meta-item date" itemprop="dateModified" datetime="2022-05-15T22:18:38+08:00">
   <a class='notlink'>
     <i class="fa-solid fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：2022年4月28日</p>
+    <p>更新于：2022年5月15日</p>
   </a>
 </div>
 
@@ -2628,7 +2655,9 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://wxqiye.github.io/2022/04/23/resnet/&title=resnet - qiye&summary="
+          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://wxqiye.github.io/2022/04/29/%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E6%9E%B6%E6%9E%84%E6%B1%87%E6%80%BB/&title=卷积神经网络架构汇总 - qiye&summary=
+本文主要回顾各个经典的卷积神经网络，便于复习
+"
           
           >
           
@@ -2640,7 +2669,9 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://wxqiye.github.io/2022/04/23/resnet/&title=resnet - qiye&summary="
+          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://wxqiye.github.io/2022/04/29/%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E6%9E%B6%E6%9E%84%E6%B1%87%E6%80%BB/&title=卷积神经网络架构汇总 - qiye&summary=
+本文主要回顾各个经典的卷积神经网络，便于复习
+"
           
           >
           
@@ -2652,7 +2683,9 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer noopener"
           
-          target="_blank" href="http://service.weibo.com/share/share.php?url=https://wxqiye.github.io/2022/04/23/resnet/&title=resnet - qiye&summary="
+          target="_blank" href="http://service.weibo.com/share/share.php?url=https://wxqiye.github.io/2022/04/29/%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E6%9E%B6%E6%9E%84%E6%B1%87%E6%80%BB/&title=卷积神经网络架构汇总 - qiye&summary=
+本文主要回顾各个经典的卷积神经网络，便于复习
+"
           
           >
           
@@ -2685,29 +2718,28 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
     <div class="prev-next">
       
-        <a class='prev' href='/2022/04/27/%E5%BC%95%E6%B0%B4%E5%85%A5%E5%9F%8E/'>
-          <p class='title'><i class="fa-solid fa-chevron-left" aria-hidden="true"></i>引水入城</p>
+        <a class='prev' href='/2022/04/29/softmax%E5%9B%9E%E5%BD%92/'>
+          <p class='title'><i class="fa-solid fa-chevron-left" aria-hidden="true"></i>softmax回归</p>
+          <p class='content'>
+本文深入理解softmax回归。
+且将softmax与sigmoid，同放在最后一层进行了对比。
+
+
+老生常谈，softmax回归不是回归，是分类。
+具体如下：
+
+区分二分跟softmax简单...</p>
+        </a>
+      
+      
+        <a class='next' href='/2022/04/27/day%208-20/'>
+          <p class='title'>day 8-20<i class="fa-solid fa-chevron-right" aria-hidden="true"></i></p>
           <p class='content'>
 高中时候残存的一些博客
 
 
 
-123456789101112131415161718192021222324252627282930313233343536373839404142434445...</p>
-        </a>
-      
-      
-        <a class='next' href='/2022/04/23/%E6%84%9F%E7%9F%A5%E6%9C%BA/'>
-          <p class='title'>感知机<i class="fa-solid fa-chevron-right" aria-hidden="true"></i></p>
-          <p class='content'>
-本文深入探讨什么是感知机，早期感知机的缺陷，以及缺陷的解决。以便于自己今后的复习。
-
-
-
-什么是感知机早期感知机就是一个二分类的工具
-
-类比
-
-本质便是一条线性的线去拟合数据，将所有数据的点，...</p>
+\1. 妹子 1 问题描述 万人迷皮皮轩收到了很多妹子的礼物，由于皮皮轩觉得每个妹子都不错，所以将她们礼物 的包装盒都好好保存，但长此以往皮皮轩的房间里都堆不下了...</p>
         </a>
       
     </div>
@@ -2723,7 +2755,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
   <article class="post white-box reveal shadow floatable blur" id="comments">
     <span hidden>
-      <meta itemprop="discussionUrl" content="/2022/04/23/resnet/index.html#comments">
+      <meta itemprop="discussionUrl" content="/2022/04/29/%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E6%9E%B6%E6%9E%84%E6%B1%87%E6%80%BB/index.html#comments">
     </span>
     <p ct><i class='fa-solid fa-comments'></i> 评论</p>
     
@@ -2746,9 +2778,19 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
 
 
-  <div class="pjax">
-    <!-- pjax占位 -->
-  </div>
+  <section class="widget toc-wrapper shadow floatable blur desktop mobile pjax" id="toc-div" >
+    
+  <header>
+    
+      <i class="fa-solid fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
+    
+  </header>
+
+
+    <div class='content'>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Lenet"><span class="toc-number">1.</span> <span class="toc-text">Lenet</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Alexnet"><span class="toc-number">2.</span> <span class="toc-text">Alexnet</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#VGG"><span class="toc-number">3.</span> <span class="toc-text">VGG</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#NIN"><span class="toc-number">4.</span> <span class="toc-text">NIN</span></a></li></ol>
+    </div>
+  </section>
 
   
 
@@ -4137,7 +4179,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"qiye","url":"https://wxqiye.github.io/","logo":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"qiye","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://wxqiye.github.io/","sameAs":["https://github.com/volantis-x"],"description":""},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://wxqiye.github.io/","name":"qiye"}},{"@type":"ListItem","position":2,"item":{"@id":"https://wxqiye.github.io/categories/深度学习/","name":"深度学习"}},{"@type":"ListItem","position":3,"item":{"@id":"https://wxqiye.github.io/2022/04/23/resnet/","name":"resnet"}}]},{"@context":"http://schema.org","@type":"BlogPosting","headline":"resnet","description":"","datePublished":"2022-04-23T12:19:08.000Z","dateModified":"2022-04-28T06:34:55.246Z","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https://wxqiye.github.io/2022/04/23/resnet/"},"author":{"@type":"Person","name":"qiye","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://wxqiye.github.io/"},"publisher":{"@type":"Organization","name":"qiye","logo":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://wxqiye.github.io/2022/04/23/resnet/","wordCount":0,"articleSection":"深度学习","keywords":"深度学习","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
+  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"qiye","url":"https://wxqiye.github.io/","logo":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"qiye","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://wxqiye.github.io/","sameAs":["https://github.com/volantis-x"],"description":""},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://wxqiye.github.io/","name":"qiye"}},{"@type":"ListItem","position":2,"item":{"@id":"https://wxqiye.github.io/categories/深度学习/","name":"深度学习"}},{"@type":"ListItem","position":3,"item":{"@id":"https://wxqiye.github.io/2022/04/29/卷积神经网络架构汇总/","name":"卷积神经网络架构汇总"}}]},{"@context":"http://schema.org","@type":"BlogPosting","headline":"卷积神经网络架构汇总","description":"\n本文主要回顾各个经典的卷积神经网络，便于复习\n","datePublished":"2022-04-29T04:55:20.000Z","dateModified":"2022-05-15T14:18:38.421Z","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https://wxqiye.github.io/2022/04/29/%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E6%9E%B6%E6%9E%84%E6%B1%87%E6%80%BB/"},"author":{"@type":"Person","name":"qiye","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://wxqiye.github.io/"},"publisher":{"@type":"Organization","name":"qiye","logo":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://wxqiye.github.io/2022/04/29/%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E6%9E%B6%E6%9E%84%E6%B1%87%E6%80%BB/","wordCount":24,"articleSection":"深度学习","keywords":"深度学习","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
 
 
   <!-- 
