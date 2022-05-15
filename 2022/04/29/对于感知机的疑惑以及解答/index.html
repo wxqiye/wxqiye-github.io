@@ -47,7 +47,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png">
 <meta property="article:published_time" content="2022-04-29T08:07:47.000Z">
-<meta property="article:modified_time" content="2022-04-29T09:54:59.846Z">
+<meta property="article:modified_time" content="2022-05-15T15:59:02.393Z">
 <meta property="article:author" content="qiye">
 <meta property="article:tag" content="深度学习疑问与解答">
 <meta name="twitter:card" content="summary">
@@ -1769,7 +1769,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     debug: false,
     cdn: {"js":{"app":"/js/app.3690b000.js","parallax":"/js/plugins/parallax.8bf0ab10.js","rightMenu":"/js/plugins/rightMenu.1d2dd3e0.js","rightMenus":"/js/plugins/rightMenus.68379f6b.js","sites":"/js/plugins/tags/sites.76bf19b8.js","friends":"/js/plugins/tags/friends.f372da57.js","contributors":"/js/plugins/tags/contributors.aec80453.js","search":"/js/search/hexo.06d40311.js"},"css":{"style":"/css/style.7559fcd3.css"}},
     default: {"avatar":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/placeholder/avatar/round/3442075.svg","link":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/placeholder/link/8f277b4ee0ecd.svg","cover":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/placeholder/cover/76b86c0226ffd.svg","image":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/placeholder/image/2659360.svg"},
-    lastupdate: new Date(1652628093437),
+    lastupdate: new Date(1652633125844),
     sidebar: {
       for_page: ["blogger","category","tagcloud","webinfo"],
       for_post: ["toc"],
@@ -2601,7 +2601,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 </div><div class="story post-story"><h2 id="解答问题二："><a href="#解答问题二：" class="headerlink" title="解答问题二："></a>解答问题二：</h2><p>因为早期的感知机，本来就有非线性激活函数f(n)，所以，在后面加了一层就能处理异或问题，并不会造成塌陷。</p>
 </div><div class="story post-story"><h2 id="解答问题三："><a href="#解答问题三：" class="headerlink" title="解答问题三："></a>解答问题三：</h2><p>非线性，需要<strong>激活函数</strong>，并且要<strong>多层</strong>，二者缺一不可。</p>
 <p><strong>激活函数</strong>保证不会塌陷成线性，<strong>多层</strong>保证一个x被多个w影响，共同作用保证了<strong>每个变量无法与其他变量独立开来</strong>。</p>
-<p><strong>如何没有激活函数会成为：</strong></p>
+<p><strong>如果没有激活函数会成为：</strong></p>
 <p><img src="https://imagemarkdownimage.oss-cn-beijing.aliyuncs.com/img/image-20220429164837590.png" class="lazyload" data-srcset="https://imagemarkdownimage.oss-cn-beijing.aliyuncs.com/img/image-20220429164837590.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="image-20220429164837590"></p>
 <p>(w1,w2这里是矩阵，为了便于理解,我就看成单一的w1,w2两个变量)</p>
 <p>即会造成<strong>塌陷</strong>，w2*w1，完全可以重新组成一个w，他还是线性的。</p>
@@ -2649,10 +2649,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateModified" datetime="2022-04-29T17:54:59+08:00">
+          <div class="new-meta-item date" itemprop="dateModified" datetime="2022-05-15T23:59:02+08:00">
   <a class='notlink'>
     <i class="fa-solid fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：2022年4月29日</p>
+    <p>更新于：2022年5月15日</p>
   </a>
 </div>
 
@@ -2755,9 +2755,14 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       
         <a class='prev' href='/2022/05/15/%E4%BD%BF%E7%94%A8resnet18%E8%BF%9B%E8%A1%8C%E7%8C%AB%E7%8B%97%E5%88%86%E7%B1%BB/'>
           <p class='title'><i class="fa-solid fa-chevron-left" aria-hidden="true"></i>使用resnet18进行猫狗分类</p>
-          <p class='content'>resnet简介使用resnet18。
+          <p class='content'>
+本文对resnet进行介绍，并使用resnet18进行猫狗分类，进行多项对比实验
+
+
+
+resnet简介使用resnet18。
 resnet18，18指带有权重的18层。
-具体原理为，加更多层不一定能使精度更高，可能学偏，越学越远，精度更低。resnet，使下一层更复杂模型包含前面...</p>
+具体原理为，加更多层...</p>
         </a>
       
       
@@ -4211,7 +4216,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"qiye","url":"https://wxqiye.github.io/","logo":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"qiye","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://wxqiye.github.io/","sameAs":["https://github.com/volantis-x"],"description":""},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://wxqiye.github.io/","name":"qiye"}},{"@type":"ListItem","position":2,"item":{"@id":"https://wxqiye.github.io/categories/深度学习疑问与解答/","name":"深度学习疑问与解答"}},{"@type":"ListItem","position":3,"item":{"@id":"https://wxqiye.github.io/2022/04/29/对于感知机的疑惑以及解答/","name":"对于感知机的疑惑以及解答"}}]},{"@context":"http://schema.org","@type":"BlogPosting","headline":"对于感知机的疑惑以及解答","description":"\n学习不免产生很多疑问，如下：（只是我自己的思考，不能保证正确。）\n\n感知机为什么是线性，多层感知机为什么是非线性。不是都有非线性激活函数吗。感知机到多层感知机，到底是因为引入了非线性激活函数，还是增加了层数。\n早期感知机为什么只是加了一层，没有用其他非线性激活函数，就能处理异或问题。线性叠加多少层不还是线性吗。\n到底是如何增加非线性的。\n\n","datePublished":"2022-04-29T08:07:47.000Z","dateModified":"2022-04-29T09:54:59.846Z","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https://wxqiye.github.io/2022/04/29/%E5%AF%B9%E4%BA%8E%E6%84%9F%E7%9F%A5%E6%9C%BA%E7%9A%84%E7%96%91%E6%83%91%E4%BB%A5%E5%8F%8A%E8%A7%A3%E7%AD%94/"},"author":{"@type":"Person","name":"qiye","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://wxqiye.github.io/"},"publisher":{"@type":"Organization","name":"qiye","logo":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://wxqiye.github.io/2022/04/29/%E5%AF%B9%E4%BA%8E%E6%84%9F%E7%9F%A5%E6%9C%BA%E7%9A%84%E7%96%91%E6%83%91%E4%BB%A5%E5%8F%8A%E8%A7%A3%E7%AD%94/","wordCount":172,"articleSection":"深度学习疑问与解答","keywords":"深度学习疑问与解答","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
+  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"qiye","url":"https://wxqiye.github.io/","logo":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"qiye","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://wxqiye.github.io/","sameAs":["https://github.com/volantis-x"],"description":""},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://wxqiye.github.io/","name":"qiye"}},{"@type":"ListItem","position":2,"item":{"@id":"https://wxqiye.github.io/categories/深度学习疑问与解答/","name":"深度学习疑问与解答"}},{"@type":"ListItem","position":3,"item":{"@id":"https://wxqiye.github.io/2022/04/29/对于感知机的疑惑以及解答/","name":"对于感知机的疑惑以及解答"}}]},{"@context":"http://schema.org","@type":"BlogPosting","headline":"对于感知机的疑惑以及解答","description":"\n学习不免产生很多疑问，如下：（只是我自己的思考，不能保证正确。）\n\n感知机为什么是线性，多层感知机为什么是非线性。不是都有非线性激活函数吗。感知机到多层感知机，到底是因为引入了非线性激活函数，还是增加了层数。\n早期感知机为什么只是加了一层，没有用其他非线性激活函数，就能处理异或问题。线性叠加多少层不还是线性吗。\n到底是如何增加非线性的。\n\n","datePublished":"2022-04-29T08:07:47.000Z","dateModified":"2022-05-15T15:59:02.393Z","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https://wxqiye.github.io/2022/04/29/%E5%AF%B9%E4%BA%8E%E6%84%9F%E7%9F%A5%E6%9C%BA%E7%9A%84%E7%96%91%E6%83%91%E4%BB%A5%E5%8F%8A%E8%A7%A3%E7%AD%94/"},"author":{"@type":"Person","name":"qiye","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://wxqiye.github.io/"},"publisher":{"@type":"Organization","name":"qiye","logo":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://wxqiye.github.io/2022/04/29/%E5%AF%B9%E4%BA%8E%E6%84%9F%E7%9F%A5%E6%9C%BA%E7%9A%84%E7%96%91%E6%83%91%E4%BB%A5%E5%8F%8A%E8%A7%A3%E7%AD%94/","wordCount":172,"articleSection":"深度学习疑问与解答","keywords":"深度学习疑问与解答","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
 
 
   <!-- 

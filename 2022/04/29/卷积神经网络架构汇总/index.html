@@ -34,18 +34,18 @@
   <title>卷积神经网络架构汇总 - qiye</title>
   <meta name="keywords" content="深度学习,null">
   <meta desc name="description" content="
-本文主要回顾各个经典的卷积神经网络，便于复习
+本文主要回顾各个经典的卷积神经网络，便于复习,resnet架构在resnet18进行猫狗分类里将的很详细，这里就不再赘述。
  - qiye - qiye">
   
 <meta property="og:type" content="article">
 <meta property="og:title" content="卷积神经网络架构汇总">
 <meta property="og:url" content="https://wxqiye.github.io/2022/04/29/%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E6%9E%B6%E6%9E%84%E6%B1%87%E6%80%BB/index.html">
 <meta property="og:site_name" content="qiye">
-<meta property="og:description" content="本文主要回顾各个经典的卷积神经网络，便于复习">
+<meta property="og:description" content="本文主要回顾各个经典的卷积神经网络，便于复习,resnet架构在resnet18进行猫狗分类里将的很详细，这里就不再赘述。">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png">
 <meta property="article:published_time" content="2022-04-29T04:55:20.000Z">
-<meta property="article:modified_time" content="2022-05-15T14:18:38.421Z">
+<meta property="article:modified_time" content="2022-05-15T15:55:37.832Z">
 <meta property="article:author" content="qiye">
 <meta property="article:tag" content="深度学习">
 <meta name="twitter:card" content="summary">
@@ -1767,7 +1767,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     debug: false,
     cdn: {"js":{"app":"/js/app.3690b000.js","parallax":"/js/plugins/parallax.8bf0ab10.js","rightMenu":"/js/plugins/rightMenu.1d2dd3e0.js","rightMenus":"/js/plugins/rightMenus.68379f6b.js","sites":"/js/plugins/tags/sites.76bf19b8.js","friends":"/js/plugins/tags/friends.f372da57.js","contributors":"/js/plugins/tags/contributors.aec80453.js","search":"/js/search/hexo.06d40311.js"},"css":{"style":"/css/style.7559fcd3.css"}},
     default: {"avatar":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/placeholder/avatar/round/3442075.svg","link":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/placeholder/link/8f277b4ee0ecd.svg","cover":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/placeholder/cover/76b86c0226ffd.svg","image":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/placeholder/image/2659360.svg"},
-    lastupdate: new Date(1652628093437),
+    lastupdate: new Date(1652633125844),
     sidebar: {
       for_page: ["blogger","category","tagcloud","webinfo"],
       for_post: ["toc"],
@@ -2568,18 +2568,18 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   <div id="layoutHelper-page-plugins"></div>
   <div id="post-body" itemprop="articleBody">
     <blockquote>
-<p>本文主要回顾各个经典的卷积神经网络，便于复习</p>
+<p>本文主要回顾各个经典的卷积神经网络，便于复习,resnet架构在resnet18进行猫狗分类里将的很详细，这里就不再赘述。</p>
 </blockquote>
 <span id="more"></span>
 
 
 
 <div class="story post-story"><h2 id="Lenet"><a href="#Lenet" class="headerlink" title="Lenet"></a>Lenet</h2><p><img src="https://imagemarkdownimage.oss-cn-beijing.aliyuncs.com/img/image-20220515214305547.png" class="lazyload" data-srcset="https://imagemarkdownimage.oss-cn-beijing.aliyuncs.com/img/image-20220515214305547.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="image-20220515214305547"></p>
-<p>比较简单不对解释，从卷积到全连接的时候，他直接选择了拉长，没有用平均池化。</p>
-<p>最后使用softmax</p>
+<p>比较简单不多解释，中间有采用平均池化层，从卷积到全连接的时候，他直接选择了拉长，没有用全局平均池化。</p>
+<p>最后使用softmax。</p>
 </div><div class="story post-story"><h2 id="Alexnet"><a href="#Alexnet" class="headerlink" title="Alexnet"></a>Alexnet</h2><p>本质是更深更大的Lenet</p>
 <p><img src="https://bkimg.cdn.bcebos.com/pic/3c6d55fbb2fb4316e902e8882ca4462309f7d327?x-bce-process=image/resize,m_lfit,w_536,limit_1/format,f_jpg" class="lazyload" data-srcset="https://bkimg.cdn.bcebos.com/pic/3c6d55fbb2fb4316e902e8882ca4462309f7d327?x-bce-process=image/resize,m_lfit,w_536,limit_1/format,f_jpg" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="AlexNet"></p>
-<p>与lent相比，采用了最大池化层，使用ReLU而不是sigmoid。</p>
+<p>与lenet相比，采用了最大池化层，激活函数使用ReLU而不是sigmoid。</p>
 <p>在全连接层的前两层使用dropout。</p>
 <p>使用局部响应归一化，Local Response Normalization，使其中比较大的值变的相对更大，增加局部对比度。（不是很懂这个方法，下来再更新）</p>
 </div><div class="story post-story"><h2 id="VGG"><a href="#VGG" class="headerlink" title="VGG"></a>VGG</h2><p>提出vgg块，相当于将Alexnet的这一块给规则化<img src="https://imagemarkdownimage.oss-cn-beijing.aliyuncs.com/img/image-20220515220526335.png" class="lazyload" data-srcset="https://imagemarkdownimage.oss-cn-beijing.aliyuncs.com/img/image-20220515220526335.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="image-20220515220526335"></p>
@@ -2629,7 +2629,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateModified" datetime="2022-05-15T22:18:38+08:00">
+          <div class="new-meta-item date" itemprop="dateModified" datetime="2022-05-15T23:55:37+08:00">
   <a class='notlink'>
     <i class="fa-solid fa-edit fa-fw" aria-hidden="true"></i>
     <p>更新于：2022年5月15日</p>
@@ -2656,7 +2656,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer noopener"
           
           target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://wxqiye.github.io/2022/04/29/%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E6%9E%B6%E6%9E%84%E6%B1%87%E6%80%BB/&title=卷积神经网络架构汇总 - qiye&summary=
-本文主要回顾各个经典的卷积神经网络，便于复习
+本文主要回顾各个经典的卷积神经网络，便于复习,resnet架构在resnet18进行猫狗分类里将的很详细，这里就不再赘述。
 "
           
           >
@@ -2670,7 +2670,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer noopener"
           
           target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://wxqiye.github.io/2022/04/29/%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E6%9E%B6%E6%9E%84%E6%B1%87%E6%80%BB/&title=卷积神经网络架构汇总 - qiye&summary=
-本文主要回顾各个经典的卷积神经网络，便于复习
+本文主要回顾各个经典的卷积神经网络，便于复习,resnet架构在resnet18进行猫狗分类里将的很详细，这里就不再赘述。
 "
           
           >
@@ -2684,7 +2684,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer noopener"
           
           target="_blank" href="http://service.weibo.com/share/share.php?url=https://wxqiye.github.io/2022/04/29/%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E6%9E%B6%E6%9E%84%E6%B1%87%E6%80%BB/&title=卷积神经网络架构汇总 - qiye&summary=
-本文主要回顾各个经典的卷积神经网络，便于复习
+本文主要回顾各个经典的卷积神经网络，便于复习,resnet架构在resnet18进行猫狗分类里将的很详细，这里就不再赘述。
 "
           
           >
@@ -4179,7 +4179,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"qiye","url":"https://wxqiye.github.io/","logo":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"qiye","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://wxqiye.github.io/","sameAs":["https://github.com/volantis-x"],"description":""},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://wxqiye.github.io/","name":"qiye"}},{"@type":"ListItem","position":2,"item":{"@id":"https://wxqiye.github.io/categories/深度学习/","name":"深度学习"}},{"@type":"ListItem","position":3,"item":{"@id":"https://wxqiye.github.io/2022/04/29/卷积神经网络架构汇总/","name":"卷积神经网络架构汇总"}}]},{"@context":"http://schema.org","@type":"BlogPosting","headline":"卷积神经网络架构汇总","description":"\n本文主要回顾各个经典的卷积神经网络，便于复习\n","datePublished":"2022-04-29T04:55:20.000Z","dateModified":"2022-05-15T14:18:38.421Z","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https://wxqiye.github.io/2022/04/29/%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E6%9E%B6%E6%9E%84%E6%B1%87%E6%80%BB/"},"author":{"@type":"Person","name":"qiye","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://wxqiye.github.io/"},"publisher":{"@type":"Organization","name":"qiye","logo":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://wxqiye.github.io/2022/04/29/%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E6%9E%B6%E6%9E%84%E6%B1%87%E6%80%BB/","wordCount":24,"articleSection":"深度学习","keywords":"深度学习","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
+  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"qiye","url":"https://wxqiye.github.io/","logo":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"qiye","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://wxqiye.github.io/","sameAs":["https://github.com/volantis-x"],"description":""},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://wxqiye.github.io/","name":"qiye"}},{"@type":"ListItem","position":2,"item":{"@id":"https://wxqiye.github.io/categories/深度学习/","name":"深度学习"}},{"@type":"ListItem","position":3,"item":{"@id":"https://wxqiye.github.io/2022/04/29/卷积神经网络架构汇总/","name":"卷积神经网络架构汇总"}}]},{"@context":"http://schema.org","@type":"BlogPosting","headline":"卷积神经网络架构汇总","description":"\n本文主要回顾各个经典的卷积神经网络，便于复习,resnet架构在resnet18进行猫狗分类里将的很详细，这里就不再赘述。\n","datePublished":"2022-04-29T04:55:20.000Z","dateModified":"2022-05-15T15:55:37.832Z","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https://wxqiye.github.io/2022/04/29/%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E6%9E%B6%E6%9E%84%E6%B1%87%E6%80%BB/"},"author":{"@type":"Person","name":"qiye","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://wxqiye.github.io/"},"publisher":{"@type":"Organization","name":"qiye","logo":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://wxqiye.github.io/2022/04/29/%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E6%9E%B6%E6%9E%84%E6%B1%87%E6%80%BB/","wordCount":63,"articleSection":"深度学习","keywords":"深度学习","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
 
 
   <!-- 

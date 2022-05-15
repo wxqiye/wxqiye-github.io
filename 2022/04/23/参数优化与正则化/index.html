@@ -39,11 +39,11 @@
 <meta property="og:title" content="参数优化与正则化">
 <meta property="og:url" content="https://wxqiye.github.io/2022/04/23/%E5%8F%82%E6%95%B0%E4%BC%98%E5%8C%96%E4%B8%8E%E6%AD%A3%E5%88%99%E5%8C%96/index.html">
 <meta property="og:site_name" content="qiye">
-<meta property="og:description" content="参数优化SGD随机取一组batch_size数据的平均损失进行梯度下降，作用：减小震荡。 动量法 分解为w1,w2两个方向的分量，累加这些梯度的两个分量，一个方向的被抵消，如图：减少了震荡。 adagrad 刚开始梯度很大，后来梯度变小，但adagrad很容易过分累积梯度从而提前停止更新。 adam 本质就是自己设置的学习率自衰减策略。 正则化目的是减少泛化误差 l2正则化 权重衰退控制权重在一定">
+<meta property="og:description" content="参数优化SGD随机取一组batch_size数据的平均损失进行梯度下降，作用：减小震荡。 动量法 分解为w1,w2两个方向的分量，累加这些梯度的两个分量，一个方向的被抵消，如图：减少了震荡。 adagrad 刚开始梯度很大，后来梯度变小，但adagrad很容易过分累积梯度从而提前停止更新。 adam 本质就是自己设置的学习率自衰减策略。 正则化即“带约束的目标函数”。 目的是减少泛化误差，防止过拟">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png">
 <meta property="article:published_time" content="2022-04-23T12:13:08.000Z">
-<meta property="article:modified_time" content="2022-05-15T13:00:39.820Z">
+<meta property="article:modified_time" content="2022-05-15T16:44:58.762Z">
 <meta property="article:author" content="qiye">
 <meta property="article:tag" content="深度学习">
 <meta name="twitter:card" content="summary">
@@ -1765,7 +1765,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     debug: false,
     cdn: {"js":{"app":"/js/app.3690b000.js","parallax":"/js/plugins/parallax.8bf0ab10.js","rightMenu":"/js/plugins/rightMenu.1d2dd3e0.js","rightMenus":"/js/plugins/rightMenus.68379f6b.js","sites":"/js/plugins/tags/sites.76bf19b8.js","friends":"/js/plugins/tags/friends.f372da57.js","contributors":"/js/plugins/tags/contributors.aec80453.js","search":"/js/search/hexo.06d40311.js"},"css":{"style":"/css/style.7559fcd3.css"}},
     default: {"avatar":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/placeholder/avatar/round/3442075.svg","link":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/placeholder/link/8f277b4ee0ecd.svg","cover":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/placeholder/cover/76b86c0226ffd.svg","image":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/placeholder/image/2659360.svg"},
-    lastupdate: new Date(1652628093437),
+    lastupdate: new Date(1652633125844),
     sidebar: {
       for_page: ["blogger","category","tagcloud","webinfo"],
       for_post: ["toc"],
@@ -2572,11 +2572,20 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 <p>刚开始梯度很大，后来梯度变小，但adagrad很容易过分累积梯度从而提前停止更新。</p>
 </div><div class="story post-story"><h2 id="adam"><a href="#adam" class="headerlink" title="adam"></a>adam</h2><p><img src="https://imagemarkdownimage.oss-cn-beijing.aliyuncs.com/img/image-20220515200732871.png" class="lazyload" data-srcset="https://imagemarkdownimage.oss-cn-beijing.aliyuncs.com/img/image-20220515200732871.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="image-20220515200732871"></p>
 <p>本质就是自己设置的学习率自衰减策略。</p>
-<h1 id="正则化"><a href="#正则化" class="headerlink" title="正则化"></a>正则化</h1><p>目的是减少泛化误差</p>
+<h1 id="正则化"><a href="#正则化" class="headerlink" title="正则化"></a>正则化</h1><p>即“带约束的目标函数”。</p>
+<p>目的是减少泛化误差，防止过拟合。</p>
+<p>本质是约束限制要优化的参数。</p>
+<p>为什么约束限制参数能防止过拟合呢？</p>
+<p>因为约束限制参数，可以限制参数范围，控制模型复杂度。</p>
+<p>模型复杂度降低，不容易把参数学的很大，从而不容易学到那些噪声点，不容易使模型与样本过分拟合。</p>
+<p>于是便更倾向于学到一个刚刚好的参数，提高了模型的泛化能力。</p>
 </div><div class="story post-story"><h2 id="l2正则化-权重衰退"><a href="#l2正则化-权重衰退" class="headerlink" title="l2正则化 权重衰退"></a>l2正则化 权重衰退</h2><p>控制权重在一定范围，缩小参数范围，对参数值进行约束。</p>
-</div><div class="story post-story"><h2 id="权重衰退"><a href="#权重衰退" class="headerlink" title="权重衰退"></a>权重衰退</h2><p>随机选择某些节点进行删除</p>
-</div><div class="story post-story"><h2 id="BN"><a href="#BN" class="headerlink" title="BN"></a>BN</h2><p>批标准化</p>
+</div><div class="story post-story"><h2 id="丢弃法"><a href="#丢弃法" class="headerlink" title="丢弃法"></a>丢弃法</h2><p>随机按一定比例，选择某些节点置零，增加其他节点的大小，但是总体期望保持不变，因此增加了数据的噪音，从而防止过拟合。</p>
+</div><div class="story post-story"><h2 id="BN"><a href="#BN" class="headerlink" title="BN"></a>BN</h2><p>批量归一化</p>
 <p><img src="https://imagemarkdownimage.oss-cn-beijing.aliyuncs.com/img/9774e573013d4bc792d0fe53f9fb99fc.png" class="lazyload" data-srcset="https://imagemarkdownimage.oss-cn-beijing.aliyuncs.com/img/9774e573013d4bc792d0fe53f9fb99fc.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="[外链图片转存失败,源站可能有防盗链机制,建议将图片保存下来直接上传(img-QbtKFJN7-1645331526174)(笔记图片/image-20200803145636561.png)]"></p>
+<p>训练时，只要网络前面几层发生一点点变化，到后面几层就会引起剧烈变化。所以我们使用批量归一化，控制每一层参数的分布，统一在一定大概范围，使得靠近输入层的参数，更新的稳定一点，这样上层更新参数时要做的变化就不会特别剧烈，训练起来就要稳定容易一些，训练复杂度也会降低。</p>
+<p>同时，批量归一化后的分布，参数在进行学习的过程，是有回到原本分布的途径的，所以一定程度恢复了参数分布的原始表达能力。同时还有参数γ和β，不断学习，使得参数不断逼近最优分布。</p>
+<p>批量归一化也可以看做加入了噪音，因为均值和方差，都是在当前批次下求出来的，所以每一小批次减除的都不同。于是增加了噪音，提高了模型的泛化能力。也是因此，我们很少将同为正则化的dropout与BN同时使用。一般会优先使用BN，因其效果更好。</p>
 
 </div>
   </div>
@@ -2613,10 +2622,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateModified" datetime="2022-05-15T21:00:39+08:00">
+          <div class="new-meta-item date" itemprop="dateModified" datetime="2022-05-16T00:44:58+08:00">
   <a class='notlink'>
     <i class="fa-solid fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：2022年5月15日</p>
+    <p>更新于：2022年5月16日</p>
   </a>
 </div>
 
@@ -2757,7 +2766,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
 
     <div class='content'>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#SGD"><span class="toc-number">1.</span> <span class="toc-text">SGD</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%A8%E9%87%8F%E6%B3%95"><span class="toc-number">2.</span> <span class="toc-text">动量法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#adagrad"><span class="toc-number">3.</span> <span class="toc-text">adagrad</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#adam"><span class="toc-number">4.</span> <span class="toc-text">adam</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#l2%E6%AD%A3%E5%88%99%E5%8C%96-%E6%9D%83%E9%87%8D%E8%A1%B0%E9%80%80"><span class="toc-number">5.</span> <span class="toc-text">l2正则化 权重衰退</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9D%83%E9%87%8D%E8%A1%B0%E9%80%80"><span class="toc-number">6.</span> <span class="toc-text">权重衰退</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#BN"><span class="toc-number">7.</span> <span class="toc-text">BN</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#SGD"><span class="toc-number">1.</span> <span class="toc-text">SGD</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%A8%E9%87%8F%E6%B3%95"><span class="toc-number">2.</span> <span class="toc-text">动量法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#adagrad"><span class="toc-number">3.</span> <span class="toc-text">adagrad</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#adam"><span class="toc-number">4.</span> <span class="toc-text">adam</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#l2%E6%AD%A3%E5%88%99%E5%8C%96-%E6%9D%83%E9%87%8D%E8%A1%B0%E9%80%80"><span class="toc-number">5.</span> <span class="toc-text">l2正则化 权重衰退</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%A2%E5%BC%83%E6%B3%95"><span class="toc-number">6.</span> <span class="toc-text">丢弃法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#BN"><span class="toc-number">7.</span> <span class="toc-text">BN</span></a></li></ol>
     </div>
   </section>
 
@@ -4148,7 +4157,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"qiye","url":"https://wxqiye.github.io/","logo":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"qiye","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://wxqiye.github.io/","sameAs":["https://github.com/volantis-x"],"description":""},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://wxqiye.github.io/","name":"qiye"}},{"@type":"ListItem","position":2,"item":{"@id":"https://wxqiye.github.io/categories/深度学习/","name":"深度学习"}},{"@type":"ListItem","position":3,"item":{"@id":"https://wxqiye.github.io/2022/04/23/参数优化与正则化/","name":"参数优化与正则化"}}]},{"@context":"http://schema.org","@type":"BlogPosting","headline":"参数优化与正则化","description":"","datePublished":"2022-04-23T12:13:08.000Z","dateModified":"2022-05-15T13:00:39.820Z","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https://wxqiye.github.io/2022/04/23/%E5%8F%82%E6%95%B0%E4%BC%98%E5%8C%96%E4%B8%8E%E6%AD%A3%E5%88%99%E5%8C%96/"},"author":{"@type":"Person","name":"qiye","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://wxqiye.github.io/"},"publisher":{"@type":"Organization","name":"qiye","logo":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://wxqiye.github.io/2022/04/23/%E5%8F%82%E6%95%B0%E4%BC%98%E5%8C%96%E4%B8%8E%E6%AD%A3%E5%88%99%E5%8C%96/","wordCount":0,"articleSection":"深度学习","keywords":"深度学习","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
+  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"qiye","url":"https://wxqiye.github.io/","logo":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"qiye","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://wxqiye.github.io/","sameAs":["https://github.com/volantis-x"],"description":""},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://wxqiye.github.io/","name":"qiye"}},{"@type":"ListItem","position":2,"item":{"@id":"https://wxqiye.github.io/categories/深度学习/","name":"深度学习"}},{"@type":"ListItem","position":3,"item":{"@id":"https://wxqiye.github.io/2022/04/23/参数优化与正则化/","name":"参数优化与正则化"}}]},{"@context":"http://schema.org","@type":"BlogPosting","headline":"参数优化与正则化","description":"","datePublished":"2022-04-23T12:13:08.000Z","dateModified":"2022-05-15T16:44:58.762Z","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https://wxqiye.github.io/2022/04/23/%E5%8F%82%E6%95%B0%E4%BC%98%E5%8C%96%E4%B8%8E%E6%AD%A3%E5%88%99%E5%8C%96/"},"author":{"@type":"Person","name":"qiye","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"https://wxqiye.github.io/"},"publisher":{"@type":"Organization","name":"qiye","logo":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://wxqiye.github.io/2022/04/23/%E5%8F%82%E6%95%B0%E4%BC%98%E5%8C%96%E4%B8%8E%E6%AD%A3%E5%88%99%E5%8C%96/","wordCount":0,"articleSection":"深度学习","keywords":"深度学习","image":{"@type":"ImageObject","url":"https://npm.elemecdn.com/volantis-static@0.0.1649552113628/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
 
 
   <!-- 
